@@ -24,11 +24,10 @@ import {
   ArrowLeft,
   Play,
   MessageCircle,
-  Youtube, // Added for footer
+  Youtube,
 } from "lucide-react"
-import emailjs from '@emailjs/browser'; // MODIFIED: Import emailjs for sending emails
+import emailjs from '@emailjs/browser';
 
-// Custom hook for intersection observer
 const useIntersectionObserver = (options = {}) => {
   const [isIntersecting, setIsIntersecting] = useState(false)
   const ref = useRef<HTMLDivElement>(null)
@@ -52,7 +51,6 @@ const useIntersectionObserver = (options = {}) => {
   return [ref, isIntersecting] as const
 }
 
-// Animation component
 const AnimatedSection: React.FC<{
   children: React.ReactNode
   className?: string
@@ -86,8 +84,7 @@ export default function HomePage() {
     subject: "",
     message: "",
   })
-
-  // MODIFIED: Added state for form submission status and loading
+  
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'success' | 'error' | null>(null);
 
@@ -111,7 +108,6 @@ export default function HomePage() {
         }
         return false
       })
-// sourcery skip: use-braces
       if (current) setActiveSection(current)
     }
 
@@ -133,7 +129,7 @@ export default function HomePage() {
         }
 
         if (isTypingComplete) {
-          setTimeout(() => setIsDeleting(true), 2000) // Increased pause time
+          setTimeout(() => setIsDeleting(true), 2000)
         } else if (isDeletingComplete) {
           setIsDeleting(false)
           setRoleIndex((prev) => (prev + 1) % roles.length)
@@ -155,10 +151,8 @@ export default function HomePage() {
     window.scrollTo({ top: 0, behavior: "smooth" })
   }
 
-  // MODIFIED: This function now sends a real email via EmailJS
   const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-// sourcery skip: use-braces
     if (isSubmitting) return;
 
     setIsSubmitting(true);
@@ -172,12 +166,21 @@ export default function HomePage() {
     };
     
     try {
-      await emailjs.send(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
-        templateParams,
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
-      );
+      await Promise.all([
+        emailjs.send(
+          process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+          process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+          templateParams,
+          process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+        ),
+        emailjs.send(
+          process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+          process.env.NEXT_PUBLIC_EMAILJS_AUTOREPLY_TEMPLATE_ID!,
+          templateParams,
+          process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+        )
+      ]);
+      
       setSubmitStatus('success');
       setFormData({ name: "", email: "", subject: "", message: "" });
     } catch (error) {
@@ -196,12 +199,10 @@ export default function HomePage() {
   const skills = [ { name: "HTML", category: "development", iconPath: "/icons/HTML.webp" }, { name: "CSS", category: "development", iconPath: "/icons/CSS.webp" }, { name: "JavaScript", category: "development", iconPath: "/icons/Javascript.gif" }, { name: "Next.js", category: "development", iconPath: "/icons/Next.js.webp" }, { name: "Tailwind CSS", category: "development", iconPath: "/icons/Tailwind CSS.webp" }, { name: "Python", category: "data_science", iconPath: "/icons/Python.webp" } ];
   const projects = { dev: [ { id: "ovault", title: "O-VAULT System", description: "Securely stores and manages personal IDs and documents.", image: "/O-VAULT Thumbnail.webp", heroImage: "/O-VAULT Thumbnail.webp", tech: ["HTML", "CSS", "Javascript", "PHP", "MySQL"], liveUrl: "https://o-vault.netlify.app/", githubUrl: "https://github.com/Kamau-Johnson/O-VAULT-SYSTEM---personal-id-document-keeper-system.", videoLink: "https://www.youtube.com/@Kamau_Johnson", category: "dev", color: "blue", detailedDescription: "O VAULT is a secure and user-friendly system built to manage and protect personal IDs and sensitive documents. It simulates real-world authentication with session control, enabling users to log in, access stored credentials, and maintain privacy throughout the session. The platform focuses on simplicity, data privacy, and seamless user access, making it ideal for safe and efficient document handling.", }, { id: "bebapay", title: "BebaPay", description: "♻️ Recycle to Earn. Empower the Future. Go Green Initiative", image: "/BebaPay Thumbnail.webp", heroImage: "/BebaPay Thumbnail.webp", tech: ["Next.js", "React", "Tailwind CSS", "TypeScript", "Cypherium Blockchain", "Superbase"], liveUrl: "https://v0-deploy-to-vercel-plum-seven.vercel.app/", githubUrl: "https://github.com/Kamau-Johnson/BebaPay-Refined-Version", videoLink: "https://www.youtube.com/@Kamau_Johnson", category: "dev", color: "blue", detailedDescription: "BebaPay is an innovative recycling and rewards platform designed to promote environmental responsibility through a unique incentive-based model. Users are rewarded with eco-points for recycling materials such as plastic, glass, and paper, which can be redeemed for goods or services. The system features secure user authentication, real-time activity tracking, and a personalized dashboard that visualizes individual environmental impact. The platform leverages modern web technologies and integrates the Web Crypto API to ensure secure transactions and data integrity. By combining sustainability with tangible rewards, BebaPay bridges the gap between eco-conscious behavior and everyday digital convenience empowering individuals to contribute to a cleaner planet while earning value in return.", }, { id: "sostos blog", title: "Sostos Blog", description: "A clean, fast, and responsive blog platform for sharing tech insights, tutorials, and personal thoughts.", image: "/Sostos Blog Thumbnail.webp", heroImage: "/Sostos Blog Thumbnail.webp", tech: ["HTML", "CSS", "Next.js", "React", "Tailwind CSS", "Firebase"], liveUrl: "https://sostosblog-git-main-johnson-tech-droids-projects.vercel.app/", githubUrl: "https://github.com/Kamau-Johnson/Sostos-Blog---PowerHack-Competition.", videoLink: "https://www.youtube.com/@Kamau_Johnson", category: "dev", color: "blue", detailedDescription: "Sostos Blog is a modern, responsive blogging platform designed for sharing technical insights, tutorials, and personal reflections. It delivers a distraction-free reading experience with a minimalist interface that emphasizes clarity and performance. The platform supports dynamic content, intuitive navigation, and scalable content organization, making it ideal for developers, writers, and thinkers alike. With a focus on speed, accessibility, and clean design, Sostos empowers creators to publish meaningful content that connects and informs.", }, ], };
   const getFilteredProjects = () => { if (activeProjectTab === "all") { return [...projects.dev] } if (activeProjectTab === "dev") { return projects.dev } return [] };
-// sourcery skip: use-braces
   const getCurrentProject = () => { if (!selectedProject) return null; const allProjects = [...projects.dev]; return allProjects.find((project) => project.id === selectedProject) };
   const handleProjectClick = (projectId: string) => setSelectedProject(projectId);
   const handleBackToProjects = () => setSelectedProject(null);
 
-  // MODIFIED: This data structure is for the new footer icons
   const footerSocials = [
     { href: "https://www.linkedin.com/in/kamau-johnson-4bab25276/", icon: Linkedin, label: "LinkedIn Profile", color: "hover:bg-blue-600 hover:border-blue-600" },
     { href: "https://github.com/Kamau-Johnson", icon: Github, label: "GitHub Profile", color: "hover:bg-purple-600 hover:border-purple-600" },
@@ -401,7 +402,6 @@ export default function HomePage() {
               <Card className="bg-slate-800/80 border-slate-700 backdrop-blur-sm hover:border-purple-600/50 transition-all duration-300">
                 <CardContent className="p-8">
                   <h3 className="text-xl font-semibold mb-6">Send Me a Message</h3>
-                  {/* MODIFIED: This form now has full functionality */}
                   <form onSubmit={handleFormSubmit} className="space-y-6">
                     <div className="grid md:grid-cols-2 gap-4">
                       <div>
@@ -435,7 +435,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* MODIFIED: This footer is updated with new icons and layout */}
       <footer className="py-8 px-6 lg:px-12 border-t border-slate-800 bg-slate-800/50">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row items-center justify-between">
