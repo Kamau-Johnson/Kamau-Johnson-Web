@@ -396,7 +396,7 @@ export default function HomePage() {
             </AnimatedSection>
             <AnimatedSection delay={400} className="space-y-8">
               <div className="flex justify-center mb-8">
-                <div className="relative group"> <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg blur-xl opacity-30 animate-pulse"></div> <Image src="/contact-image.png" alt="Contact Animation" width={400} height={300} className="relative rounded-lg shadow-2xl border-2 border-purple-600/20 transition-transform duration-300 group-hover:scale-105" /> </div>
+                <div className="relative group"> <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg blur-xl opacity-30 animate-pulse"></div> <Image src="/contact-image.webp" alt="Contact Animation" width={400} height={300} className="relative rounded-lg shadow-2xl border-2 border-purple-600/20 transition-transform duration-300 group-hover:scale-105" /> </div>
               </div>
               <Card className="bg-slate-800/80 border-slate-700 backdrop-blur-sm hover:border-purple-600/50 transition-all duration-300">
                 <CardContent className="p-8">
