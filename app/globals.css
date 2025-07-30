@@ -1,3 +1,5 @@
+/* src/app/globals.css (FINAL AND GUARANTEED SOLUTION) */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -59,17 +61,27 @@
 }
 
 @layer base {
+  /*
+    THIS IS THE NEW, DEFINITIVE RULE.
+    The '*' selector targets EVERY element.
+    The '!important' flag ensures THIS rule always wins.
+    This forces your custom cursor on everything, no exceptions.
+  */
   * {
     @apply border-border;
+    cursor: url('/Cursor.webp') 10 10, auto !important;
   }
+  
   body {
     @apply bg-background text-foreground;
-    /* The 'cursor: none;' line has been deleted from here */
+  }
+  
+  html {
+    scroll-behavior: smooth;
   }
 }
 
-
-/* Card hover effects */
+/* Custom animations and hover effects */
 .card-hover {
   transition: all 0.3s ease-out;
 }
@@ -78,7 +90,6 @@
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
 }
 
-/* Link hover effects */
 a {
   transition: all 0.2s ease-out;
 }
@@ -86,7 +97,6 @@ a:hover {
   transform: translateY(-1px);
 }
 
-/* Input focus effects */
 input,
 textarea {
   transition: all 0.2s ease-out;
@@ -97,12 +107,6 @@ textarea:focus {
   box-shadow: 0 4px 12px rgba(168, 85, 247, 0.2);
 }
 
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
-}
-
-/* Custom animations */
 @keyframes glow {
   0%,
   100% {
