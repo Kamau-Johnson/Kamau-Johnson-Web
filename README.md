@@ -1,4 +1,4 @@
-# kamaujohnson.dev (My Portfolio Website)
+# My Portfolio Website (kamaujohnson.dev)
 
 Welcome to my personal portfolio website kamaujohnson.dev where I showcase my projects, skills, and journey as a software developer and data scientist. This site highlights my experience, ongoing learning, and work in software development and data science.
 ## Project Overview
