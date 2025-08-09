@@ -1,5 +1,4 @@
-
-# (EduGrade+) – Smart Education Management System
+# kamaujohnson.dev (My Portfolio Website)
 
 Welcome to my personal portfolio website kamaujohnson.dev where I showcase my projects, skills, and journey as a software developer and data scientist. This site highlights my experience, ongoing learning, and work in software development and data science.
 ## Project Overview
