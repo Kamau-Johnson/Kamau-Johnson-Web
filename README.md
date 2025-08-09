@@ -20,7 +20,7 @@ Welcome to my personal portfolio website kamaujohnson.dev where I showcase my pr
 
 ## Tech Stack
 
-**Client:** Next.js, React, Tailwind CSS.
+**Client:** Next.js, TypeScript, Tailwind CSS.
 
 **Hosted:** Porkbun.com Domain Hosting Service, Github & Vercel Hosting.
 
