@@ -3,10 +3,9 @@
 
 Welcome to my personal portfolio website kamaujohnson.dev where I showcase my projects, skills, and journey as a software developer and data scientist. This site highlights my experience, ongoing learning, and work in software development and data science.
 ## Project Overview
-
 ![Portfolio Screenshot](Portfolio%20Screenshot.png)
-
-
+## Video Demo
+![Image](https://github.com/user-attachments/assets/f992fc61-5893-437a-835f-4f5e2ed73103)
 ## Features
 
 - Home Page
