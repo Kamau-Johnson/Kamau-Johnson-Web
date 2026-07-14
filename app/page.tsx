@@ -888,6 +888,91 @@ const ProjectDetailView = () => {
             <h4 className="text-lg md:text-xl font-bold text-white mb-1">Nairobi County Hackathon</h4>
             <p className="text-sm md:text-base text-white font-medium">Winners • $1000 Cash Prize</p>
           </div>
+          
+        </div>
+
+        {/* WQU International Recognition Spotlights (Image left, 3/4 Video and text right) */}
+        <div className="grid grid-cols-1 lg:grid-cols-7 gap-8 items-stretch mt-12 mb-20">
+          
+          {/* Left Column: Spotlight Image */}
+<div className="lg:col-span-4 flex flex-col h-full">
+  <div className="relative overflow-hidden rounded-2x5 border border-slate-800 hover:border-blue-600/30 transition-all duration-500 flex-1 min-h-[260px]">
+    <Image
+      src="/World Quant University Recognition.webp"
+      alt="WQU Spotlight Feature Image"
+      fill
+      className="object-cover transition-transform duration-700 hover:scale-[1.01]"
+    />
+    <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent opacity-60"></div>
+  </div>
+</div>
+
+          {/* Right Column: Autoplay Video & Details (Spans 3 columns - exactly 3/4 width of the left image column) */}
+          <div className="lg:col-span-3 flex flex-col justify-between bg-slate-900/50 p-6 rounded-2xl border border-slate-800 hover:border-blue-600/30 transition-all duration-300">
+            <div className="space-y-5">
+              
+              {/* Video element with increased tallness and object-cover */}
+              <video
+                src="/WorldQuant University Video Spotlight.mp4"
+                autoPlay
+                loop
+                muted
+                playsInline
+                controls={false}
+                disablePictureInPicture
+                controlsList="nodownload noplaybackrate noremoteplayback"
+                className="block w-full h-[220px] md:h-[240px] object-cover rounded-xl"
+              />
+
+              {/* Narrative & Redirect Text */}
+              <div className="space-y-4">
+                <p className="text-gray-300 leading-relaxed text-sm font-normal">
+                  Internationally recognized by <strong className="text-white">WorldQuant University</strong> for representing Kenya in <strong className="text-white">Africa's Story of the Week</strong>, highlighting excellence in Data Science, innovation, continuous learning, and professional impact.
+                </p>
+                
+                <p className="text-gray-400 text-xs font-normal">
+                  To read the blog written about me, click the link below:
+                </p>
+              </div>
+            </div>
+
+            {/* Dark Blue Blog Post Button */}
+            <div className="mt-6 pt-4 border-t border-slate-800">
+              <a 
+                href="https://www.wqu.edu/alumni/spotlight/kamau" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-xl bg-[#0F1E36] hover:bg-[#1A2E4C] border border-[#233A5E]/40 text-white font-semibold text-sm transition-all duration-300 hover:shadow-lg hover:shadow-blue-950/25 hover:-translate-y-0.5 active:scale-95 group select-none cursor-pointer w-full justify-center"
+              >
+                {/* Document Icon (SVG) */}
+                <svg 
+                  className="w-5 h-5 text-blue-400 transition-transform duration-300 group-hover:scale-110" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  strokeWidth="2"
+                  viewBox="0 0 24 24" 
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v3m2 4H9m12 0a2 2 0 11-4 0m4 0a2 2 0 11-4 0m3 5h4M9 16h5m-5-8h6"></path>
+                </svg>
+                
+                <span>Read WQU Blog post on Kamau Johnson</span>
+                
+                {/* Chevron Icon (SVG) */}
+                <svg 
+                  className="w-4 h-4 ml-1 transition-transform duration-300 group-hover:translate-x-1" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  strokeWidth="2.5" 
+                  viewBox="0 0 24 24" 
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7"></path>
+                </svg>
+              </a>
+            </div>
+
+          </div>
         </div>
       </div>
     </AnimatedSection>
@@ -1084,18 +1169,18 @@ const ProjectDetailView = () => {
             </div>
 
             {/* YouTube Video Button Link */}
-<div className="mb-6 pt-4 border-t border-slate-800">
-  <a 
-    href="https://www.youtube.com/watch?v=cc8T8MimqQ8&t=110s" 
-    target="_blank" 
-    rel="noopener noreferrer"
-    className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-xl bg-red-600 hover:bg-red-700 text-white font-semibold text-sm transition-all duration-300 hover:shadow-lg hover:shadow-red-900/20 hover:-translate-y-0.5 active:scale-95 group select-none cursor-pointer"
-  >
-    <Youtube className="w-5 h-5 transition-transform duration-300 group-hover:scale-110" />
-    <span>Watch WQU Graduation on YouTube</span>
-    <ChevronRight className="w-4 h-4 ml-1 transition-transform duration-300 group-hover:translate-x-1" />
-  </a>
-</div>
+            <div className="mb-6 pt-4 border-t border-slate-800">
+              <a 
+                href="#" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-xl bg-red-600 hover:bg-red-700 text-white font-semibold text-sm transition-all duration-300 hover:shadow-lg hover:shadow-red-900/20 hover:-translate-y-0.5 active:scale-95 group select-none cursor-pointer"
+              >
+                <Youtube className="w-5 h-5 transition-transform duration-300 group-hover:scale-110" />
+                <span>Watch WQU Graduation on YouTube</span>
+                <ChevronRight className="w-4 h-4 ml-1 transition-transform duration-300 group-hover:translate-x-1" />
+              </a>
+            </div>
 
             <div className="flex items-center gap-4 mt-4">
               <blockquote className="border-l-4 border-blue-600 pl-4 italic text-gray-400 text-sm flex-1">
