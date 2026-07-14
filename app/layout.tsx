@@ -6,7 +6,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Kamau Johnson - Software Developer | Data Scientist",
+  title: "Kamau Johnson - ML Engineer | Data Scientist | Software Developer",
   description:
     "I build intelligent, scalable software solutions using Python and data. Full Stack Developer and Data Scientist specializing in modern web technologies and machine learning.",
   keywords: [
