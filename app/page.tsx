@@ -539,6 +539,7 @@ const ProjectDetailView = () => {
               <li><strong>Bachelor of Science in Computer Science</strong> – Catholic University of Eastern Africa (CUEA)</li>
               <li><strong>Diploma in Computer Science</strong> – Zetech University (ZU)</li>
               <li><strong>Applied Data Science</strong> – WorldQuant University (WQU)</li>
+              <li><strong>Deep Learning</strong> – WorldQuant University (WQU)</li>
               <li><strong>Computer Vision</strong> – WorldQuant University (WQU)</li>
               <li><strong>Software Development</strong> – Power Learn Project (PLP)</li>
               <li><strong>Diploma in Leadership and Management Styles</strong> – Alison University (AU)</li>
