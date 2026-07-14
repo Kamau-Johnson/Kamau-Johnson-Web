@@ -1,8 +1,7 @@
 "use client"
 
 import Link from "next/link";
-import type React from "react"
-import { useState, useEffect, useRef } from "react"
+import React, { useState, useEffect, useRef } from "react"
 import { useSearchParams, useRouter, usePathname } from "next/navigation"; // Add this line
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
@@ -853,7 +852,7 @@ const ProjectDetailView = () => {
         </div>
       </section>
 
- <section id="achievements" className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-black">
+<section id="achievements" className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-black">
   <div className="max-w-6xl mx-auto">
     
     {/* Header Section */}
@@ -868,30 +867,30 @@ const ProjectDetailView = () => {
       </div>
     </AnimatedSection>
 
-<AnimatedSection delay={100}>
-  <h3 className="text-xl font-semibold text-blue-600 mb-4 uppercase tracking-wide">Highlights</h3>
-  
-  <div className="relative group mb-20">
-    <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-transparent rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+    <AnimatedSection delay={100}>
+      <h3 className="text-xl font-semibold text-blue-600 mb-4 uppercase tracking-wide">Highlights</h3>
+      
+      <div className="relative group mb-20">
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-transparent rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
 
-    <div className="relative overflow-hidden rounded-2x5 border border-slate-800 group-hover:border-blue-600/50 transition-all duration-500 shadow-2x5">
-      <Image 
-         src="/BebaPay Hackathon.webp" 
-         alt="Nairobi County Hackathon" 
-         width={1200} 
-         height={600} 
-         className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-[1.02]" 
-       />
-      
-      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-70"></div>
-      
-      <div className="absolute bottom-4 left-4 md:bottom-6 md:left-6">
-        <h4 className="text-lg md:text-xl font-bold text-white mb-1">Nairobi County Hackathon</h4>
-        <p className="text-sm md:text-base text-white font-medium">Winners • $1000 Cash Prize</p>
+        <div className="relative overflow-hidden rounded-2x5 border border-slate-800 group-hover:border-blue-600/50 transition-all duration-500 shadow-2x5">
+          <Image 
+             src="/BebaPay Hackathon.webp" 
+             alt="Nairobi County Hackathon" 
+             width={1200} 
+             height={600} 
+             className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-[1.02]" 
+           />
+          
+          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-70"></div>
+          
+          <div className="absolute bottom-4 left-4 md:bottom-6 md:left-6">
+            <h4 className="text-lg md:text-xl font-bold text-white mb-1">Nairobi County Hackathon</h4>
+            <p className="text-sm md:text-base text-white font-medium">Winners • $1000 Cash Prize</p>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</AnimatedSection>
+    </AnimatedSection>
 
     <div className="space-y-20">
       
@@ -899,37 +898,37 @@ const ProjectDetailView = () => {
         <AnimatedSection delay={200} className="flex flex-col justify-center">
           <h3 className="text-xl font-semibold text-blue-600 mb-8 uppercase tracking-wide">Track Record</h3>
           <div className="bg-slate-900/50 p-6 md:p-8 rounded-2xl border border-slate-800 backdrop-blur-sm hover:border-blue-600/30 transition-all duration-300 group h-full">
-  <h4 className="text-xl font-bold text-blue-600 mb-2">Power Hacks Hackathon - 4th Runners-Up</h4>
-  <p className="text-gray-400 text-sm mb-4 font-medium uppercase tracking-tight">October 2024 • First Hackathon Experience</p>
+            <h4 className="text-xl font-bold text-blue-600 mb-2">Power Hacks Hackathon - 4th Runners-Up</h4>
+            <p className="text-gray-400 text-sm mb-4 font-medium uppercase tracking-tight">October 2024 • First Hackathon Experience</p>
 
-  <p className="text-gray-300 leading-relaxed text-sm font-normal">
-    <strong className="text-white">SOSTOS Blog</strong> is a platform to verify public statements and combat misinformation. I participated in my first hackathon representing SOSTOS Blog, sponsored by <strong className="text-white">Safaricom</strong> and <strong className="text-white">SpaceYaTech</strong>. As second project lead, I helped develop the platform, coordinate the team, and pitch our solution.
-  </p>
+            <p className="text-gray-300 leading-relaxed text-sm font-normal">
+              <strong className="text-white">SOSTOS Blog</strong> is a platform to verify public statements and combat misinformation. I participated in my first hackathon representing SOSTOS Blog, sponsored by <strong className="text-white">Safaricom</strong> and <strong className="text-white">SpaceYaTech</strong>. As second project lead, I helped develop the platform, coordinate the team, and pitch our solution.
+            </p>
 
-  <p className="text-gray-300 leading-relaxed text-sm font-normal">
-    Our project earned <strong className="text-white">4th Runners-Up</strong>, giving me hands-on experience in full-stack development, rapid prototyping, teamwork, and presenting innovative solutions.
-  </p>
+            <p className="text-gray-300 leading-relaxed text-sm font-normal">
+              Our project earned <strong className="text-white">4th Runners-Up</strong>, giving me hands-on experience in full-stack development, rapid prototyping, teamwork, and presenting innovative solutions.
+            </p>
 
-  <div className="bg-black/40 p-4 rounded-xl border border-slate-800 mt-2">
-    <h5 className="font-semibold text-blue-600 mb-2 text-xs uppercase tracking-widest">Key Outcomes:</h5>
-    <ul className="text-xs text-gray-400 space-y-1 font-medium">
-      <li>• Built a platform to verify public statements</li>
-      <li>• Coordinated team and supported pitching</li>
-      <li>• Secured 4th Runners-Up in a major hackathon</li>
-      <li>• Gained practical experience in full-stack development and teamwork</li>
-    </ul>
-  </div>
-</div>
+            <div className="bg-black/40 p-4 rounded-xl border border-slate-800 mt-2">
+              <h5 className="font-semibold text-blue-600 mb-2 text-xs uppercase tracking-widest">Key Outcomes:</h5>
+              <ul className="text-xs text-gray-400 space-y-1 font-medium">
+                <li>• Built a platform to verify public statements</li>
+                <li>• Coordinated team and supported pitching</li>
+                <li>• Secured 4th Runners-Up in a major hackathon</li>
+                <li>• Gained practical experience in full-stack development and teamwork</li>
+              </ul>
+            </div>
+          </div>
         </AnimatedSection>
 
-         <AnimatedSection delay={300} className="flex flex-col">
+        <AnimatedSection delay={300} className="flex flex-col">
           <h3 className="text-xl font-semibold text-blue-600 mb-8 uppercase tracking-wide">MOMENTS FROM MY JOURNEY</h3>
           <div className="relative overflow-hidden rounded-2x5 border border-slate-800 group-hover:border-blue-600/50 transition-all duration-500 h-full min-h-[300px]">
             <Image 
                src="/Power Hacks Hackathon.webp" 
                alt="Power Hacks Moment" 
                fill
-              className="object-cover transition-transform duration-700 group-hover:scale-105" 
+               className="object-cover transition-transform duration-700 group-hover:scale-105" 
              />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60"></div>
           </div>
@@ -938,113 +937,206 @@ const ProjectDetailView = () => {
       
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
         <AnimatedSection delay={400} className="flex flex-col justify-center">
-    <div className="bg-slate-900/50 p-6 md:p-8 rounded-2xl border border-slate-800 backdrop-blur-sm hover:border-blue-600/30 transition-all duration-300 group h-full">
-      <h4 className="text-xl font-bold text-blue-600 mb-2">Blockchain & Web3 Bootcamp</h4>
-      <p className="text-gray-400 text-sm mb-4 font-medium uppercase tracking-tight">April 2025 • Blockchain Hackathon win</p>
+          <div className="bg-slate-900/50 p-6 md:p-8 rounded-2xl border border-slate-800 backdrop-blur-sm hover:border-blue-600/30 transition-all duration-300 group h-full">
+            <h4 className="text-xl font-bold text-blue-600 mb-2">Blockchain & Web3 Bootcamp</h4>
+            <p className="text-gray-400 text-sm mb-4 font-medium uppercase tracking-tight">April 2025 • Blockchain Hackathon win</p>
 
-      <p className="text-gray-300 leading-relaxed mb-4 text-sm font-normal">
-        I participated in an intense <strong className="text-white">4-day Blockchain & Web3 Bootcamp</strong>, where we were introduced to cutting-edge technology and trained on leveraging blockchain to design innovative solutions for real-world problems. 
-        On the second day, I led a team of 4 to brainstorm and pitch a project aimed at helping the <strong className="text-white">Nairobi County Government</strong> implement a startup-level environmental solution called the <strong className="text-white">Go Green Initiative</strong>.
-      </p>
+            <p className="text-gray-300 leading-relaxed mb-4 text-sm font-normal">
+              I participated in an intense <strong className="text-white">4-day Blockchain & Web3 Bootcamp</strong>, where we were introduced to cutting-edge technology and trained on leveraging blockchain to design innovative solutions for real-world problems. 
+              On the second day, I led a team of 4 to brainstorm and pitch a project aimed at helping the <strong className="text-white">Nairobi County Government</strong> implement a startup-level environmental solution called the <strong className="text-white">Go Green Initiative</strong>.
+            </p>
 
-      <p className="text-gray-300 leading-relaxed mb-4 text-sm font-normal">
-        Our pitch was selected among the <strong className="text-white">top 5 team ideas</strong>, and we were given two weeks to develop a fully functional system. I coordinated the team's tasks, designed the smart contract layer, and ensured the platform architecture was robust and scalable.
-      </p>
+            <p className="text-gray-300 leading-relaxed mb-4 text-sm font-normal">
+              Our pitch was selected among the <strong className="text-white">top 5 team ideas</strong>, and we were given two weeks to develop a fully functional system. I coordinated the team's tasks, designed the smart contract layer, and ensured the platform architecture was robust and scalable.
+            </p>
 
-      <p className="text-gray-300 leading-relaxed mb-4 text-sm font-normal">
-        On the day of the hackathon presentation, our project <strong className="text-white">BebaPay</strong> won <strong className="text-white">$1,000 in cash</strong>, earned collaborations, and opened a broad path for my career in technology. BebaPay is a <strong className="text-white">tokenized recycling platform</strong> that incentivizes residents to recycle by rewarding them with digital tokens, which can be redeemed for goods or services. It aims to reduce waste and promote sustainability through decentralized, transparent transactions.
-      </p>
+            <p className="text-gray-300 leading-relaxed mb-4 text-sm font-normal">
+              On the day of the hackathon presentation, our project <strong className="text-white">BebaPay</strong> won <strong className="text-white">$1,000 in cash</strong>, earned collaborations, and opened a broad path for my career in technology. BebaPay is a <strong className="text-white">tokenized recycling platform</strong> that incentivizes residents to recycle by rewarding them with digital tokens, which can be redeemed for goods or services. It aims to reduce waste and promote sustainability through decentralized, transparent transactions.
+            </p>
 
-      <p className="text-gray-300 leading-relaxed mb-4 text-sm font-normal">
-        After the bootcamp, we refined BebaPay and presented it to the <strong className="text-white">Nairobi County Government</strong>, showcasing it as a startup-ready solution for their environmental initiatives. The Go Green Initiative integrates technology, community engagement, and blockchain-based incentives to create measurable environmental impact while fostering entrepreneurship and innovation.
-      </p>
+            <p className="text-gray-300 leading-relaxed mb-4 text-sm font-normal">
+              After the bootcamp, we refined BebaPay and presented it to the <strong className="text-white">Nairobi County Government</strong>, showcasing it as a startup-ready solution for their environmental initiatives. The Go Green Initiative integrates technology, community engagement, and blockchain-based incentives to create measurable environmental impact while fostering entrepreneurship and innovation.
+            </p>
 
-      <div className="bg-black/40 p-4 rounded-xl border border-slate-800 mt-2">
-        <h5 className="font-semibold text-blue-600 mb-2 text-xs uppercase tracking-widest">Key Outcomes:</h5>
-        <ul className="text-xs text-gray-400 space-y-1 font-medium">
-          <li>• Led a team of 4 to design and build a full-functioning blockchain platform</li>
-          <li>• Winner of $1,000 cash prize at the hackathon</li>
-          <li>• Developed the Go Green Initiative for Nairobi County Government</li>
-          <li>• Created a tokenized recycling platform to incentivize sustainable behavior</li>
-          <li>• Gained collaborations, mentorship, and exposure to advanced blockchain technologies</li>
-        </ul>
+            <div className="bg-black/40 p-4 rounded-xl border border-slate-800 mt-2">
+              <h5 className="font-semibold text-blue-600 mb-2 text-xs uppercase tracking-widest">Key Outcomes:</h5>
+              <ul className="text-xs text-gray-400 space-y-1 font-medium">
+                <li>• Led a team of 4 to design and build a full-functioning blockchain platform</li>
+                <li>• Winner of $1,000 cash prize at the hackathon</li>
+                <li>• Developed the Go Green Initiative for Nairobi County Government</li>
+                <li>• Created a tokenized recycling platform to incentivize sustainable behavior</li>
+                <li>• Gained collaborations, mentorship, and exposure to advanced blockchain technologies</li>
+              </ul>
             </div>
           </div>
         </AnimatedSection>
 
-         <AnimatedSection delay={500} className="flex flex-col">
+        <AnimatedSection delay={500} className="flex flex-col">
           <div className="relative overflow-hidden rounded-2x5 border border-slate-800 group-hover:border-blue-600/50 transition-all duration-500 h-full min-h-[300px]">
             <Image 
                src="/BebaPay Hackathon.webp" 
                alt="Blockchain Bootcamp Detail" 
                fill
-              className="object-cover transition-transform duration-700 group-hover:scale-105" 
+               className="object-cover transition-transform duration-700 group-hover:scale-105" 
              />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60"></div>
           </div>
-          <br></br>
-           <div className="relative overflow-hidden rounded-2x5 border border-slate-800 group-hover:border-blue-600/50 transition-all duration-500 h-full min-h-[300px]">
+          <br />
+          <div className="relative overflow-hidden rounded-2x5 border border-slate-800 group-hover:border-blue-600/50 transition-all duration-500 h-full min-h-[300px]">
             <Image 
                src="/Blockchain Bootcamp 1.webp" 
                alt="Blockchain Bootcamp Detail" 
                fill
-              className="object-cover transition-transform duration-700 group-hover:scale-105" 
+               className="object-cover transition-transform duration-700 group-hover:scale-105" 
              />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60"></div>
           </div>
-          
         </AnimatedSection>
       </div>
 
+      {/* ===================== ZETECH UNIVERSITY (IMAGE LEFT, TEXT RIGHT) ===================== */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
         <div className="relative overflow-hidden rounded-2x5 border border-slate-800 group-hover:border-blue-600/50 transition-all duration-500 h-full min-h-[550px]">
-  <Image 
-    src="/Diploma Graduation pic.webp" 
-    alt="Diploma in Computer Science Graduation" 
-    fill
-    className="object-cover transition-transform duration-700 group-hover:scale-105" 
-  />
-  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60"></div>
+          <Image 
+            src="/Diploma Graduation pic.webp" 
+            alt="Diploma in Computer Science Graduation" 
+            fill
+            className="object-cover transition-transform duration-700 group-hover:scale-105" 
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60"></div>
+        </div>
+
+        <AnimatedSection delay={700} className="flex flex-col justify-center lg:order-last">
+          <h3 className="text-xl font-semibold text-blue-600 mb-8 uppercase tracking-wide">Diploma in Computer Science</h3>
+
+          <div className="bg-slate-900/50 p-6 md:p-8 rounded-2xl border border-slate-800 backdrop-blur-sm hover:border-blue-600/30 transition-all duration-300 group h-full">
+            <h4 className="text-xl font-bold text-blue-600 mb-2">Zetech University</h4>
+            <p className="text-gray-400 text-sm mb-4 font-medium uppercase tracking-tight">Academic Journey</p>
+
+            <p className="text-gray-300 leading-relaxed text-sm font-normal mb-6">
+              My journey into technology truly began during my <strong className="text-white">Diploma in Computer Science at Zetech University</strong>. 
+              Zetech gave me the opportunity to start afresh and rebuild my path from the ground up. It was not an easy road, but through patience,
+              discipline, and determination I slowly began shaping the foundation of my career in tech.
+              <br /><br />
+              It was here that I discovered my passion for data science, machine learning and software development. The journey was long and sometimes
+              challenging, but every step helped me grow stronger both academically and personally. Looking back today, the struggle was worth it,
+              and by God's grace the journey became a story of growth, resilience, and purpose.
+            </p>
+
+            <div className="flex items-center gap-4 mt-4">
+              <blockquote className="border-l-4 border-blue-600 pl-4 italic text-gray-400 text-sm flex-1">
+                "It always seems impossible until it's done."
+                <span className="block text-blue-500 mt-2 not-italic font-medium">
+                  by Nelson Mandela
+                </span>
+              </blockquote>
+
+              <div className="relative w-28 h-28 overflow-hidden rounded-lg border border-slate-700 flex-shrink-0">
+                <Image
+                  src="/Graduationpic2.webp"
+                  alt="Diploma Graduation"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </div>
+          </div>
+        </AnimatedSection>
+      </div>
+
+      {/* ===================== WORLDQUANT UNIVERSITY (TEXT LEFT, SPLIT IMAGES RIGHT) ===================== */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+        <AnimatedSection delay={800} className="flex flex-col justify-center">
+          <h3 className="text-xl font-semibold text-blue-600 mb-8 uppercase tracking-wide">Advanced Studies in Data Science</h3>
+
+          <div className="bg-slate-900/50 p-6 md:p-8 rounded-2xl border border-slate-800 backdrop-blur-sm hover:border-blue-600/30 transition-all duration-300 group h-full flex flex-col justify-between">
+            <div>
+              <h4 className="text-xl font-bold text-blue-600 mb-2">WorldQuant University</h4>
+              <p className="text-gray-400 text-sm mb-4 font-medium uppercase tracking-tight">Academic Journey</p>
+
+              <p className="text-gray-300 leading-relaxed text-sm font-normal mb-6">
+                My passion for continuous learning and advancing my expertise in artificial intelligence led me to <strong className="text-white">WorldQuant University</strong>, where I pursued <strong className="text-white">Advanced Studies in Data Science</strong> through a rigorous, project based curriculum. The experience strengthened my analytical mindset, sharpened my problem solving abilities, and equipped me with practical skills to develop intelligent, data driven solutions for real world challenges while continuously adapting to emerging technologies.
+              </p>
+
+              {/* Subsections Cards */}
+              <div className="space-y-4 mb-6">
+                <div className="bg-black/30 p-4 rounded-xl border border-slate-800/80 hover:border-blue-600/40 transition-all duration-300">
+                  <h5 className="text-xs font-bold text-blue-500 uppercase tracking-wider mb-1.5">Applied Data Science</h5>
+                  <p className="text-gray-300 text-xs leading-relaxed font-normal">
+                    <strong className="text-white">Applied Data Science</strong> laid the foundation for my ability to solve complex problems through data driven thinking. Working with real world datasets, I strengthened my skills in data analysis, statistical modeling, predictive analytics, and data visualization, enabling me to transform raw data into meaningful insights that support informed decision making.
+                  </p>
+                </div>
+
+                <div className="bg-black/30 p-4 rounded-xl border border-slate-800/80 hover:border-blue-600/40 transition-all duration-300">
+                  <h5 className="text-xs font-bold text-blue-500 uppercase tracking-wider mb-1.5">Deep Learning</h5>
+                  <p className="text-gray-300 text-xs leading-relaxed font-normal">
+                    Building on this foundation, <strong className="text-white">Deep Learning</strong> expanded my understanding of modern artificial intelligence and intelligent systems. Through practical implementation, I developed the ability to design models that learn from data, recognize patterns, and solve complex challenges, further strengthening my technical expertise in AI and machine learning.
+                  </p>
+                </div>
+
+                <div className="bg-black/30 p-4 rounded-xl border border-slate-800/80 hover:border-blue-600/40 transition-all duration-300">
+                  <h5 className="text-xs font-bold text-blue-500 uppercase tracking-wider mb-1.5">Computer Vision</h5>
+                  <p className="text-gray-300 text-xs leading-relaxed font-normal">
+                    My journey culminated in <strong className="text-white">Computer Vision</strong>, where I explored how intelligent systems interpret and understand visual information. This experience broadened my perspective on the practical applications of artificial intelligence while strengthening my ability to develop innovative solutions using image processing and visual intelligence techniques.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* YouTube Video Button Link */}
+<div className="mb-6 pt-4 border-t border-slate-800">
+  <a 
+    href="https://www.youtube.com/watch?v=cc8T8MimqQ8&t=110s" 
+    target="_blank" 
+    rel="noopener noreferrer"
+    className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-xl bg-red-600 hover:bg-red-700 text-white font-semibold text-sm transition-all duration-300 hover:shadow-lg hover:shadow-red-900/20 hover:-translate-y-0.5 active:scale-95 group select-none cursor-pointer"
+  >
+    <Youtube className="w-5 h-5 transition-transform duration-300 group-hover:scale-110" />
+    <span>Watch WQU Graduation on YouTube</span>
+    <ChevronRight className="w-4 h-4 ml-1 transition-transform duration-300 group-hover:translate-x-1" />
+  </a>
 </div>
 
-<AnimatedSection delay={700} className="flex flex-col justify-center lg:order-last">
-  <h3 className="text-xl font-semibold text-blue-600 mb-8 uppercase tracking-wide">Diploma in Computer Science</h3>
+            <div className="flex items-center gap-4 mt-4">
+              <blockquote className="border-l-4 border-blue-600 pl-4 italic text-gray-400 text-sm flex-1">
+                "Continuous learning is the minimum requirement for success in any field."
+                <span className="block text-blue-500 mt-2 not-italic font-medium">
+                  by Brian Tracy
+                </span>
+              </blockquote>
 
-  <div className="bg-slate-900/50 p-6 md:p-8 rounded-2xl border border-slate-800 backdrop-blur-sm hover:border-blue-600/30 transition-all duration-300 group h-full">
-    
-    <h4 className="text-xl font-bold text-blue-600 mb-2">Zetech University</h4>
-    <p className="text-gray-400 text-sm mb-4 font-medium uppercase tracking-tight">Academic Journey</p>
+              <div className="relative w-28 h-28 overflow-hidden rounded-lg border border-slate-700 flex-shrink-0">
+                <Image
+                  src="/Kamau Johnson World Quant Uni Logo.webp"
+                  alt="WorldQuant University Logo"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </div>
+          </div>
+        </AnimatedSection>
 
-    <p className="text-gray-300 leading-relaxed text-sm font-normal mb-6">
-      My journey into technology truly began during my <strong className="text-white">Diploma in Computer Science at Zetech University</strong>. 
-      Zetech gave me the opportunity to start afresh and rebuild my path from the ground up. It was not an easy road, but through patience,
-      discipline, and determination I slowly began shaping the foundation of my career in tech.
-      <br /><br />
-      It was here that I discovered my passion for data science, machine learning and software development. The journey was long and sometimes
-      challenging, but every step helped me grow stronger both academically and personally. Looking back today, the struggle was worth it,
-      and by God's grace the journey became a story of growth, resilience, and purpose.
-    </p>
-
-    <div className="flex items-center gap-4 mt-4">
-      <blockquote className="border-l-4 border-blue-600 pl-4 italic text-gray-400 text-sm flex-1">
-        "It always seems impossible until it's done."
-        <span className="block text-blue-500 mt-2 not-italic font-medium">
-          by Nelson Mandela
-        </span>
-      </blockquote>
-
-      <div className="relative w-28 h-28 overflow-hidden rounded-lg border border-slate-700 flex-shrink-0">
-        <Image
-          src="/Graduationpic2.webp"
-          alt="Diploma Graduation"
-          fill
-          className="object-cover"
-        />
-      </div>
-    </div>
-
-  </div>
-</AnimatedSection>
+        <div className="flex flex-col gap-4 h-full">
+          <div className="relative overflow-hidden rounded-2x5 border border-slate-800 group-hover:border-blue-600/50 transition-all duration-500 flex-1 min-h-[260px]">
+            <Image 
+              src="/Kamau Johnson World Quant Uni.webp" 
+              alt="WorldQuant University Graduation - Pic 1" 
+              fill
+              className="object-cover transition-transform duration-700 group-hover:scale-105" 
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60"></div>
+          </div>
+          <div className="relative overflow-hidden rounded-2x5 border border-slate-800 group-hover:border-blue-600/50 transition-all duration-500 flex-1 min-h-[260px]">
+            <Image 
+              src="/Kamau Johnson World Quant Uni with Badges.webp" 
+              alt="WorldQuant University Graduation - Pic 2" 
+              fill
+              className="object-cover transition-transform duration-700 group-hover:scale-105" 
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60"></div>
+          </div>
+        </div>
       </div>
 
     </div>
