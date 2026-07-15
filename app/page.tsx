@@ -898,9 +898,9 @@ const ProjectDetailView = () => {
         {/* WQU International Recognition Spotlights (Image left, 3/4 Video and text right) */}
         <div className="grid grid-cols-1 lg:grid-cols-7 gap-8 items-stretch mt-12 mb-20">
 
-          {/* Left Column: Spotlight Image */}
-          <div className="lg:col-span-4 flex flex-col h-full">
-            <div className="relative flex-1 overflow-hidden rounded-2x5 border border-slate-800 hover:border-blue-600/30 transition-all duration-500 shadow-2x5">
+          {/* Left Column: Spotlight Image (Updated height container classes to show beautifully on mobile) */}
+          <div className="lg:col-span-4 flex flex-col h-full min-h-[280px] sm:min-h-[380px] lg:min-h-0">
+            <div className="relative flex-1 h-full overflow-hidden rounded-2x5 border border-slate-800 hover:border-blue-600/30 transition-all duration-500 shadow-2x5">
               <Image
                 src="/World Quant University Recognition 1.webp"
                 alt="WQU Spotlight Feature Image"
@@ -911,13 +911,13 @@ const ProjectDetailView = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-70"></div>
               
               <div className="absolute bottom-2 left-4 md:bottom-3 md:left-6">
-  <h4 className="text-sm md:text-base font-bold text-white">
-    Global Recognition
-  </h4>
-  <p className="text-xs md:text-sm text-white/90 font-medium">
-    Africa's Story of the Week
-  </p>
-</div>
+                <h4 className="text-sm md:text-base font-bold text-white">
+                  Global Recognition
+                </h4>
+                <p className="text-xs md:text-sm text-white/90 font-medium">
+                  Africa's Story of the Week
+                </p>
+              </div>
             </div>
           </div>
 
@@ -1067,7 +1067,7 @@ const ProjectDetailView = () => {
 
       {/* ===================== ZETECH UNIVERSITY (IMAGE LEFT, TEXT RIGHT) ===================== */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
-        <div className="relative overflow-hidden rounded-2x5 border border-slate-800 group-hover:border-blue-600/50 transition-all duration-500 h-full min-h-[550px]">
+        <div className="relative overflow-hidden rounded-2x5 border border-slate-800 group-hover:border-blue-600/50 transition-all duration-500 h-full min-h-[300px] sm:min-h-[400px] lg:min-h-[550px]">
           <Image 
             src="/Diploma Graduation pic.webp" 
             alt="Diploma in Computer Science Graduation" 
