@@ -884,10 +884,14 @@ const ProjectDetailView = () => {
           
           <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-70"></div>
           
-          <div className="absolute bottom-4 left-4 md:bottom-6 md:left-6">
-            <h4 className="text-lg md:text-xl font-bold text-white mb-1">Nairobi County Hackathon</h4>
-            <p className="text-sm md:text-base text-white font-medium">Winners • $1000 Cash Prize</p>
-          </div>
+         <div className="absolute bottom-2 left-4 md:bottom-3 md:left-6">
+  <h4 className="text-sm md:text-base font-bold text-white">
+    Nairobi County Hackathon
+  </h4>
+  <p className="text-xs md:text-sm text-white/90 font-medium">
+    Winners • $1000 Cash Prize
+  </p>
+</div>
           
         </div>
 
@@ -896,15 +900,24 @@ const ProjectDetailView = () => {
 
           {/* Left Column: Spotlight Image */}
           <div className="lg:col-span-4 flex flex-col h-full">
-            <div className="relative flex-1 overflow-hidden rounded-none border border-slate-800 hover:border-blue-600/30 transition-all duration-500">
+            <div className="relative flex-1 overflow-hidden rounded-2x5 border border-slate-800 hover:border-blue-600/30 transition-all duration-500 shadow-2x5">
               <Image
                 src="/World Quant University Recognition 1.webp"
                 alt="WQU Spotlight Feature Image"
                 fill
-                className="object-cover object-center transition-transform duration-700 hover:scale-[1.01]"
+                className="object-cover object-center transition-transform duration-700 hover:scale-[1.02]"
                 priority
               />
-              <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-70"></div>
+              
+              <div className="absolute bottom-2 left-4 md:bottom-3 md:left-6">
+  <h4 className="text-sm md:text-base font-bold text-white">
+    Global Recognition
+  </h4>
+  <p className="text-xs md:text-sm text-white/90 font-medium">
+    Africa's Story of the Week
+  </p>
+</div>
             </div>
           </div>
 
@@ -1186,39 +1199,35 @@ const ProjectDetailView = () => {
       </div>
 
       {/* ===================== WORLDQUANT UNIVERSITY GLOBAL RECOGNITION ===================== */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
-        {/* Left Content */}
-        <AnimatedSection delay={900} className="flex flex-col justify-center">
-          <div className="bg-slate-900/50 p-6 md:p-8 rounded-2xl border border-slate-800 backdrop-blur-sm hover:border-blue-600/30 transition-all duration-300 group h-full">
+<div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+  {/* Left Content */}
+  <AnimatedSection delay={900} className="flex flex-col justify-center">
+    <div className="bg-slate-900/50 p-6 md:p-8 rounded-2xl border border-slate-800 backdrop-blur-sm hover:border-blue-600/30 transition-all duration-300 group h-full">
 
-            <h4 className="text-xl font-bold text-blue-600 mb-2">
-              WorldQuant University Global Recognition
-            </h4>
+      <h4 className="text-xl font-bold text-blue-600 mb-2">
+        WorldQuant University Global Recognition
+      </h4>
 
-            <p className="text-gray-400 text-sm mb-4 font-medium uppercase tracking-tight">
-              Africa's Story of the Week • International Recognition
-            </p>
+      <p className="text-gray-400 text-sm mb-4 font-medium uppercase tracking-tight">
+        Africa's Story of the Week • International Recognition
+      </p>
 
-            <p className="text-gray-300 leading-relaxed mb-4 text-sm font-normal">
-              Following my graduation from <strong className="text-white">WorldQuant University</strong>,
-              I was internationally recognized as <strong className="text-white">Africa's Story of the Week</strong>,
-              where my journey was featured on the university's global platform. The recognition highlighted
-              my commitment to continuous learning, innovation, and the practical application of Data Science
-              while proudly representing <strong className="text-white">Kenya</strong> on an international stage.
-            </p>
+      <p className="text-gray-300 leading-relaxed mb-4 text-sm font-normal">
+        Following my graduation from <strong className="text-white">WorldQuant University</strong>, I was featured in <strong className="text-white">Africa's Story of the Week</strong>, receiving international recognition through the university's global platform. The feature highlighted my journey in <strong className="text-white">Data Science</strong>, commitment to continuous learning, innovation, and the practical application of technology while proudly representing <strong className="text-white">Kenya</strong> before a worldwide audience.
+      </p>
 
-            <div className="bg-black/40 p-4 border border-slate-800 mt-2">
-              <h5 className="font-semibold text-blue-600 mb-2 text-xs uppercase tracking-widest">
-                Recognition Highlights
-              </h5>
+      <div className="bg-black/40 p-4 border border-slate-800 mt-2">
+        <h5 className="font-semibold text-blue-600 mb-2 text-xs uppercase tracking-widest">
+          Recognition Highlights
+        </h5>
 
-              <ul className="text-xs text-gray-400 space-y-1 font-medium">
-                <li>• Featured by WorldQuant University worldwide</li>
-                <li>• Selected as Africa's Story of the Week</li>
-                <li>• Represented Kenya on an international platform</li>
-                <li>• Recognized for excellence in Data Science and continuous learning</li>
-              </ul>
-            </div>
+        <ul className="text-xs text-gray-400 space-y-2 font-medium">
+          <li>• Internationally recognized through WorldQuant University's global platform.</li>
+          <li>• Featured worldwide in <span className="text-white">Africa's Story of the Week</span>.</li>
+          <li>• Represented <span className="text-white">Kenya</span> in a globally published alumni spotlight.</li>
+          <li>• Recognized for excellence in Data Science, innovation, and lifelong learning.</li>
+        </ul>
+      </div>
 
             <div className="mt-6 pt-4 border-t border-slate-800">
               <a
