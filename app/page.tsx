@@ -892,97 +892,50 @@ const ProjectDetailView = () => {
         </div>
 
         {/* WQU International Recognition Spotlights (Image left, 3/4 Video and text right) */}
-<div className="grid grid-cols-1 lg:grid-cols-7 gap-8 items-stretch mt-12 mb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-7 gap-8 items-stretch mt-12 mb-20">
 
-  {/* Left Column: Spotlight Image */}
-  <div className="lg:col-span-4 flex flex-col gap-4 h-full">
-    <div className="relative overflow-hidden rounded-2x5 border border-slate-800 hover:border-blue-600/30 transition-all duration-500 flex-1 min-h-[260px]">
-      <Image
-        src="/World Quant University Recognition.webp"
-        alt="WQU Spotlight Feature Image"
-        fill
-        className="object-cover transition-transform duration-700 hover:scale-[1.01]"
-      />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60"></div>
-    </div>
-  </div>
+          {/* Left Column: Spotlight Image */}
+          <div className="lg:col-span-4 flex flex-col h-full">
+            <div className="relative flex-1 overflow-hidden rounded-none border border-slate-800 hover:border-blue-600/30 transition-all duration-500">
+              <Image
+                src="/World Quant University Recognition 1.webp"
+                alt="WQU Spotlight Feature Image"
+                fill
+                className="object-cover object-center transition-transform duration-700 hover:scale-[1.01]"
+                priority
+              />
+              <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60"></div>
+            </div>
+          </div>
 
-  {/* Right Column: Autoplay Video & Details (Spans 3 columns - exactly 3/4 width of the left image column) */}
-  <div className="lg:col-span-3 flex flex-col justify-between bg-slate-900/50 p-6 rounded-2xl border border-slate-800 hover:border-blue-600/30 transition-all duration-300">
-    <div className="space-y-5">
+          {/* Right Column: Autoplay Video & Details (Spans 3 columns - exactly 3/4 width of the left image column) */}
+          <div className="lg:col-span-3 flex flex-col justify-between bg-slate-900/50 p-6 rounded-2xl border border-slate-800 hover:border-blue-600/30 transition-all duration-300">
+            <div className="space-y-5">
+              <div className="w-full aspect-video overflow-hidden">
+                <video
+                  src="/WorldQuant University Video Spotlight.mp4"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  controls={false}
+                  disablePictureInPicture
+                  controlsList="nodownload noplaybackrate noremoteplayback"
+                  className="w-full h-full object-contain"
+                />
+              </div>
 
-      <div className="w-full aspect-video overflow-hidden">
-  <video
-    src="/WorldQuant University Video Spotlight.mp4"
-    autoPlay
-    loop
-    muted
-    playsInline
-    controls={false}
-    disablePictureInPicture
-    controlsList="nodownload noplaybackrate noremoteplayback"
-    className="w-full h-full object-contain"
-  />
-</div>
+              <h3 className="text-2xl font-extrabold tracking-tight text-white">
+                International Recognition
+              </h3>
 
-      {/* Narrative & Redirect Text */}
-      <div className="space-y-4">
-        <p className="text-gray-300 leading-relaxed text-sm font-normal">
-          Internationally recognized by <strong className="text-white">WorldQuant University</strong> for representing Kenya in <strong className="text-white">Africa's Story of the Week</strong>, highlighting excellence in Data Science, innovation, continuous learning, and professional impact.
-        </p>
-
-        <p className="text-gray-400 text-xs font-normal">
-          To read the blog written about me, click the link below:
-        </p>
+              <p className="mt-2 text-sm text-gray-400 leading-relaxed">
+                Featured by <span className="text-white font-semibold">WorldQuant University</span> in <span className="text-white font-semibold">Africa's Story of the Week</span>, recognizing excellence in Data Science, innovation, and continuous learning.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-
-    {/* Dark Blue Blog Post Button */}
-<div className="mt-6 pt-4 border-t border-slate-800">
-  <a
-    href="https://www.wqu.edu/alumni/spotlight/kamau"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="inline-flex items-center justify-center gap-2.5 w-full px-5 py-2.5 rounded-xl bg-[#0F1E36] hover:bg-[#1A2E4C] border border-[#233A5E]/40 text-white font-semibold text-sm transition-all duration-300 hover:shadow-lg hover:shadow-blue-950/25 hover:-translate-y-0.5 active:scale-95 group cursor-pointer select-none pointer-events-auto"
-  >
-    {/* Document Icon */}
-    <svg
-      className="w-5 h-5 text-blue-400 transition-transform duration-300 group-hover:scale-110"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      viewBox="0 0 24 24"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v3m2 4H9m12 0a2 2 0 11-4 0m4 0a2 2 0 11-4 0m3 5h4M9 16h5m-5-8h6"
-      />
-    </svg>
-
-    <span>Read WQU Blog Post on Kamau Johnson</span>
-
-    {/* Chevron Icon */}
-    <svg
-      className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2.5"
-      viewBox="0 0 24 24"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M9 5l7 7-7 7"
-      />
-    </svg>
-  </a>
-</div>
-    </div>
-  </div>
-</div>
     </AnimatedSection>
 
     <div className="space-y-20">
@@ -1228,88 +1181,88 @@ const ProjectDetailView = () => {
               className="object-cover transition-transform duration-700 group-hover:scale-105" 
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60"></div>
-            
           </div>
         </div>
       </div>
+
       {/* ===================== WORLDQUANT UNIVERSITY GLOBAL RECOGNITION ===================== */}
-<div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
-  {/* Left Content */}
-  <AnimatedSection delay={900} className="flex flex-col justify-center">
-    <div className="bg-slate-900/50 p-6 md:p-8 rounded-2xl border border-slate-800 backdrop-blur-sm hover:border-blue-600/30 transition-all duration-300 group h-full">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+        {/* Left Content */}
+        <AnimatedSection delay={900} className="flex flex-col justify-center">
+          <div className="bg-slate-900/50 p-6 md:p-8 rounded-2xl border border-slate-800 backdrop-blur-sm hover:border-blue-600/30 transition-all duration-300 group h-full">
 
-      <h4 className="text-xl font-bold text-blue-600 mb-2">
-        WorldQuant University Global Recognition
-      </h4>
+            <h4 className="text-xl font-bold text-blue-600 mb-2">
+              WorldQuant University Global Recognition
+            </h4>
 
-      <p className="text-gray-400 text-sm mb-4 font-medium uppercase tracking-tight">
-        Africa's Story of the Week • International Recognition
-      </p>
+            <p className="text-gray-400 text-sm mb-4 font-medium uppercase tracking-tight">
+              Africa's Story of the Week • International Recognition
+            </p>
 
-      <p className="text-gray-300 leading-relaxed mb-4 text-sm font-normal">
-        Following my graduation from <strong className="text-white">WorldQuant University</strong>,
-        I was internationally recognized as <strong className="text-white">Africa's Story of the Week</strong>,
-        where my journey was featured on the university's global platform. The recognition highlighted
-        my commitment to continuous learning, innovation, and the practical application of Data Science
-        while proudly representing <strong className="text-white">Kenya</strong> on an international stage.
-      </p>
+            <p className="text-gray-300 leading-relaxed mb-4 text-sm font-normal">
+              Following my graduation from <strong className="text-white">WorldQuant University</strong>,
+              I was internationally recognized as <strong className="text-white">Africa's Story of the Week</strong>,
+              where my journey was featured on the university's global platform. The recognition highlighted
+              my commitment to continuous learning, innovation, and the practical application of Data Science
+              while proudly representing <strong className="text-white">Kenya</strong> on an international stage.
+            </p>
 
-      <div className="bg-black/40 p-4 border border-slate-800 mt-2">
-        <h5 className="font-semibold text-blue-600 mb-2 text-xs uppercase tracking-widest">
-          Recognition Highlights
-        </h5>
+            <div className="bg-black/40 p-4 border border-slate-800 mt-2">
+              <h5 className="font-semibold text-blue-600 mb-2 text-xs uppercase tracking-widest">
+                Recognition Highlights
+              </h5>
 
-        <ul className="text-xs text-gray-400 space-y-1 font-medium">
-          <li>• Featured by WorldQuant University worldwide</li>
-          <li>• Selected as Africa's Story of the Week</li>
-          <li>• Represented Kenya on an international platform</li>
-          <li>• Recognized for excellence in Data Science and continuous learning</li>
-        </ul>
-      </div>
+              <ul className="text-xs text-gray-400 space-y-1 font-medium">
+                <li>• Featured by WorldQuant University worldwide</li>
+                <li>• Selected as Africa's Story of the Week</li>
+                <li>• Represented Kenya on an international platform</li>
+                <li>• Recognized for excellence in Data Science and continuous learning</li>
+              </ul>
+            </div>
 
-      <div className="mt-6 pt-4 border-t border-slate-800">
-        <a
-          href="https://www.wqu.edu/alumni/spotlight/kamau"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2.5 px-5 py-2.5 bg-[#0F1E36] hover:bg-[#1A2E4C] border border-[#233A5E]/40 text-white font-semibold text-sm transition-all duration-300 hover:shadow-lg hover:shadow-blue-950/25 hover:-translate-y-0.5 active:scale-95 group select-none cursor-pointer"
-        >
-          <svg
-            className="w-5 h-5 text-blue-400 transition-transform duration-300 group-hover:scale-110"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v3m2 4H9m12 0a2 2 0 11-4 0m4 0a2 2 0 11-4 0m3 5h4M9 16h5m-5-8h6"
+            <div className="mt-6 pt-4 border-t border-slate-800">
+              <a
+                href="https://www.wqu.edu/alumni/spotlight/kamau"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2.5 px-5 py-2.5 bg-[#0F1E36] hover:bg-[#1A2E4C] border border-[#233A5E]/40 text-white font-semibold text-sm transition-all duration-300 hover:shadow-lg hover:shadow-blue-950/25 hover:-translate-y-0.5 active:scale-95 group select-none cursor-pointer"
+              >
+                <svg
+                  className="w-5 h-5 text-blue-400 transition-transform duration-300 group-hover:scale-110"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v3m2 4H9m12 0a2 2 0 11-4 0m4 0a2 2 0 11-4 0m3 5h4M9 16h5m-5-8h6"
+                  />
+                </svg>
+
+                <span>Read My Feature Story</span>
+
+                <ChevronRight className="w-4 h-4 ml-1 transition-transform duration-300 group-hover:translate-x-1" />
+              </a>
+            </div>
+
+          </div>
+        </AnimatedSection>
+
+        {/* Right Image - Sharp Corners */}
+        <AnimatedSection delay={1000} className="flex flex-col">
+          <div className="relative overflow-hidden border border-slate-800 hover:border-blue-600/40 transition-all duration-500 h-full min-h-[320px]">
+            <Image
+              src="/World Quant University Recognition.webp"
+              alt="WorldQuant University Africa's Story of the Week"
+              fill
+              className="object-cover transition-transform duration-700 hover:scale-105"
             />
-          </svg>
-
-          <span>Read My Feature Story</span>
-
-          <ChevronRight className="w-4 h-4 ml-1 transition-transform duration-300 group-hover:translate-x-1" />
-        </a>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60"></div>
+          </div>
+        </AnimatedSection>
       </div>
-
-    </div>
-  </AnimatedSection>
-
-  {/* Right Image - Sharp Corners */}
-  <AnimatedSection delay={1000} className="flex flex-col">
-    <div className="relative overflow-hidden border border-slate-800 hover:border-blue-600/40 transition-all duration-500 h-full min-h-[320px]">
-      <Image
-        src="/World Quant University Recognition.webp"
-        alt="WorldQuant University Africa's Story of the Week"
-        fill
-        className="object-cover transition-transform duration-700 hover:scale-105"
-      />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60"></div>
-    </div>
-  </AnimatedSection>
-</div>
     </div>
   </div>
 </section>
