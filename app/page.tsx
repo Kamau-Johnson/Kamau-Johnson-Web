@@ -1008,7 +1008,19 @@ const ProjectDetailView = () => {
             <p className="text-gray-300 leading-relaxed mb-4 text-sm font-normal">
               Our pitch was selected among the <strong className="text-white">top 5 team ideas</strong>, and we were given two weeks to develop a fully functional system. I coordinated the team's tasks, designed the smart contract layer, and ensured the platform architecture was robust and scalable.
             </p>
-
+            {/* Hackathon Video Button Link */}
+<div className="mb-6 pt-4 border-t border-slate-800">
+  <a
+    href="https://www.youtube.com/watch?v=JbDHmszQxlM&t=1s"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-xl bg-red-600 hover:bg-red-700 text-white font-semibold text-sm transition-all duration-300 hover:shadow-lg hover:shadow-red-900/20 hover:-translate-y-0.5 active:scale-95 group select-none cursor-pointer"
+  >
+    <Youtube className="w-5 h-5 transition-transform duration-300 group-hover:scale-110" />
+    <span>Watch BebaPay Hackathon Presentation</span>
+    <ChevronRight className="w-4 h-4 ml-1 transition-transform duration-300 group-hover:translate-x-1" />
+  </a>
+</div>
             <p className="text-gray-300 leading-relaxed mb-4 text-sm font-normal">
               On the day of the hackathon presentation, our project <strong className="text-white">BebaPay</strong> won <strong className="text-white">$1,000 in cash</strong>, earned collaborations, and opened a broad path for my career in technology. BebaPay is a <strong className="text-white">tokenized recycling platform</strong> that incentivizes residents to recycle by rewarding them with digital tokens, which can be redeemed for goods or services. It aims to reduce waste and promote sustainability through decentralized, transparent transactions.
             </p>
