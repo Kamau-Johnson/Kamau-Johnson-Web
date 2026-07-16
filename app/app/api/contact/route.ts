@@ -32,7 +32,7 @@ export async function POST(req: Request) {
       );
     }
 
-    // 2. Escape client inputs for email security
+    // 2. Escape client inputs for security
     const safeName = escapeHtml(name);
     const safeEmail = escapeHtml(email);
     const safeSubject = escapeHtml(subject);
@@ -239,8 +239,8 @@ export async function POST(req: Request) {
   </body>
 </html>`;
 
-    // 5. Dispatch both notifications in parallel
-    const [adminNotification, autoReply] = await Promise.all([
+    // 5. Run both requests concurrently
+    const [adminRes, autoReplyRes] = await Promise.all([
       resend.emails.send({
         from: "Kamau Johnson <hello@kamaujohnson.dev>",
         to: ["hello@kamaujohnson.dev"],
@@ -256,14 +256,34 @@ export async function POST(req: Request) {
       }),
     ]);
 
+    // 6. Handle errors gracefully
+    if (adminRes.error) {
+      console.error("Admin notification failed completely:", adminRes.error);
+      return Response.json(
+        { success: false, error: adminRes.error.message },
+        { status: 500 }
+      );
+    }
+
+    if (autoReplyRes.error) {
+      // Log the warning but don't fail the form because the admin received the notification
+      console.warn(
+        "Auto-reply warning (Visitor email skipped):",
+        autoReplyRes.error.message
+      );
+    }
+
     return Response.json({
       success: true,
-      data: { adminNotification, autoReply },
+      data: {
+        adminNotification: adminRes.data,
+        autoReply: autoReplyRes.data,
+      },
     });
   } catch (error) {
-    console.error("Resend error:", error);
+    console.error("Unhanded server exception during dispatch:", error);
     return Response.json(
-      { success: false, error: "Failed to send email." },
+      { success: false, error: "An unexpected server error occurred." },
       { status: 500 }
     );
   }
