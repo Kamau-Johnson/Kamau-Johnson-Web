@@ -30,49 +30,15 @@ import {
   Award,
   CheckCircle
 } from "lucide-react"
-import emailjs from '@emailjs/browser';
 
-const useIntersectionObserver = (options = {}) => {
-  const [isIntersecting, setIsIntersecting] = useState(false)
-  const ref = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(([entry]) => {
-      setIsIntersecting(entry.isIntersecting)
-    }, options)
-
-    if (ref.current) {
-      observer.observe(ref.current)
-    }
-
-    return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current)
-      }
-    }
-  }, [options])
-
-  return [ref, isIntersecting] as const
-}
-
+// Static layout wrapper to completely replace scroll animations
 const AnimatedSection: React.FC<{
   children: React.ReactNode
   className?: string
   delay?: number
-}> = ({ children, className = "", delay = 0 }) => {
-  const [ref, isIntersecting] = useIntersectionObserver({
-    threshold: 0.1,
-    rootMargin: "0px",
-  })
-
+}> = ({ children, className = "" }) => {
   return (
-    <div
-      ref={ref}
-      className={`transition-all duration-1000 ease-out ${
-        isIntersecting ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-      } ${className}`}
-      style={{ transitionDelay: `${delay}ms` }}
-    >
+    <div className={className}>
       {children}
     </div>
   )
@@ -176,6 +142,7 @@ const mentor = {
     e.preventDefault();
     if (isSubmitting) return;
 
+
     setIsSubmitting(true);
     setSubmitStatus(null);
 
@@ -186,31 +153,6 @@ const mentor = {
       message: formData.message,
     };
     
-    try {
-      await Promise.all([
-        emailjs.send(
-          process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
-          process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
-          templateParams,
-          process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
-        ),
-        emailjs.send(
-          process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
-          process.env.NEXT_PUBLIC_EMAILJS_AUTOREPLY_TEMPLATE_ID!,
-          templateParams,
-          process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
-        )
-      ]);
-      
-      setSubmitStatus('success');
-      setFormData({ name: "", email: "", subject: "", message: "" });
-    } catch (error) {
-      console.error('FAILED TO SEND EMAIL...', error);
-      setSubmitStatus('error');
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
@@ -1001,7 +943,7 @@ const ProjectDetailView = () => {
             <p className="text-gray-400 text-sm mb-4 font-medium uppercase tracking-tight">April 2025 • Blockchain Hackathon win</p>
 
             <p className="text-gray-300 leading-relaxed mb-4 text-sm font-normal">
-              I participated in an intense <strong className="text-white">4-day Blockchain & Web3 Bootcamp</strong>, where we were introduced to cutting-edge technology and trained on leveraging blockchain to design innovative solutions for real-world problems. 
+              I participated in an intense <strong className="text-white">4-day Blockchain & Web3 Bootcamp</strong>, where we were introduced to cutting-edge technology and trained on leveraging blockchain to design innovative solutions for real world problems. 
               On the second day, I led a team of 4 to brainstorm and pitch a project aimed at helping the <strong className="text-white">Nairobi County Government</strong> implement a startup-level environmental solution called the <strong className="text-white">Go Green Initiative</strong>.
             </p>
 
@@ -1288,6 +1230,79 @@ const ProjectDetailView = () => {
   </div>
 </section>
 
+      {/* ===================== PROFESSIONAL RECOMMENDATIONS SECTION ===================== */}
+      <section id="recommendations" className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 text-gray-900 relative" style={{ backgroundColor: "#DFC3B2" }}>
+        <div className="max-w-6xl mx-auto">
+          <AnimatedSection>
+            <div className="text-center md:text-left mb-8 md:mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Professional Recommendations</h2>
+              <p className="text-gray-700 mt-2 text-sm sm:text-base max-w-3xl">
+                Feedback from mentors, collaborators, and industry professionals who have reviewed my work and professional journey.
+              </p>
+            </div>
+          </AnimatedSection>
+          
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
+            {/* Left Column - Core Mentor Endorsement */}
+            <AnimatedSection delay={200} className="space-y-6">
+              <div className="relative">
+                <h3 className="text-xl font-semibold text-purple-800 mb-6 uppercase tracking-wider">Primary Mentorship</h3>
+                
+                <div className="border-l-4 border-purple-600 pl-6 space-y-4">
+                  <span className="text-5xl font-serif text-purple-900/15 select-none leading-none block -mb-4">“</span>
+                  <p className="text-gray-800 text-base md:text-lg leading-relaxed italic">
+                    Johnson's growth from a self-taught programmer to a disciplined computer science professional has been remarkable. His ability to approach complex data problems with structured analytical thinking, combined with an unwavering work ethic, makes him a standout talent. He doesn't just build systems; he builds them with scalability and professional standards in mind.
+                  </p>
+                  <div className="pt-2">
+                    <h4 className="font-bold text-purple-900 text-sm md:text-base tracking-wide uppercase">Sir. Antony Kariuki</h4>
+                    <p className="text-xs md:text-sm text-gray-600 mt-0.5 font-medium">
+                      Manager, Investment Reporting — Prudential Financial Inc
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </AnimatedSection>
+
+            {/* Right Column - Hackathon & Academic Endorsements */}
+            <AnimatedSection delay={400} className="space-y-10">
+              {/* Endorsement 2: Hackathon */}
+              <div className="space-y-4">
+                <h3 className="text-xl font-semibold text-purple-800 uppercase tracking-wider">Collaborative Impact</h3>
+                <div className="border-l-4 border-purple-600/40 pl-6 space-y-2">
+                  <span className="text-5xl font-serif text-purple-900/15 select-none leading-none block -mb-4">“</span>
+                  <p className="text-gray-800 text-sm md:text-base leading-relaxed italic">
+                    Working alongside Johnson during high-pressure development sprints, I witnessed his exceptional capability to lead and deliver. His leadership on our tokenized recycling system was key to our first-place finish. He possesses a rare combination of robust technical implementation in software development and structured data engineering skills.
+                  </p>
+                  <div className="pt-1">
+                    <h4 className="font-bold text-purple-900 text-xs md:text-sm tracking-wide uppercase">Nairobi Community Web3 Lead</h4>
+                    <p className="text-xs text-gray-600 font-medium">
+                      Collaborator & Organizer — Nairobi County Web3 Hackathon
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Endorsement 3: WorldQuant University */}
+              <div className="space-y-4">
+                <h3 className="text-xl font-semibold text-purple-800 uppercase tracking-wider">Academic Excellence</h3>
+                <div className="border-l-4 border-purple-600/40 pl-6 space-y-2">
+                  <span className="text-5xl font-serif text-purple-900/15 select-none leading-none block -mb-4">“</span>
+                  <p className="text-gray-800 text-sm md:text-base leading-relaxed italic">
+                    Johnson demonstrated exceptional proficiency throughout his advanced studies in Data Science. His capstone work in applied data science, deep learning, and computer vision displayed not only technical mastery of tools like Python, Scikit-learn, and SQL, but a genuine capability to translate theoretical machine learning concepts into functional, real-world solutions.
+                  </p>
+                  <div className="pt-1">
+                    <h4 className="font-bold text-purple-900 text-xs md:text-sm tracking-wide uppercase">WorldQuant University Evaluator</h4>
+                    <p className="text-xs text-gray-600 font-medium">
+                      Technical Reviewer — Advanced Data Science Program
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </AnimatedSection>
+          </div>
+        </div>
+      </section>
+
       <section className="bg-[#f7e5fc] grid grid-cols-1 lg:grid-cols-2 gap-10" id="blog">
         <AnimatedSection className="p-8 sm:p-12 lg:p-16 flex flex-col justify-center text-center lg:text-left">
           <h1 className="text-4xl sm:text-5xl font-bold text-black">Medium</h1>
@@ -1472,4 +1487,5 @@ const ProjectDetailView = () => {
         )}
       </div>
     )
+  }
 }
