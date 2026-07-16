@@ -147,7 +147,7 @@ const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" })
   }
 
-  const handleFormSubmit = async (e: React.FormEvent) => {
+const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (isSubmitting) return;
 
@@ -164,20 +164,40 @@ const scrollToTop = () => {
         body: JSON.stringify(formData),
       });
 
-      const result = await response.json();
+      const contentType = response.headers.get("content-type");
 
-      if (response.ok && result.success) {
-        setSubmitStatus("success");
-        setFormData({
-          name: "",
-          email: "",
-          subject: "",
-          message: "",
-        });
+      // Safely check if the server returned a JSON response
+      if (contentType && contentType.includes("application/json")) {
+        const result = await response.json();
+
+        if (response.ok && result.success) {
+          setSubmitStatus("success");
+          setFormData({
+            name: "",
+            email: "",
+            subject: "",
+            message: "",
+          });
+        } else {
+          console.error("Form submission failed:", result.error || "Unknown error");
+          setSubmitStatus("error");
+          setSubmitErrorMessage(result.error || "An unknown error occurred.");
+        }
       } else {
-        console.error("Form submission failed:", result.error || "Unknown error");
+        // The server returned an HTML page (like a 404 or 500 error from Vercel)
+        const errorText = await response.text();
+        console.error("Server returned non-JSON response:", errorText);
         setSubmitStatus("error");
-        setSubmitErrorMessage(result.error || "An unknown error occurred.");
+
+        if (response.status === 404) {
+          setSubmitErrorMessage(
+            "Server returned 404 Not Found. Please verify that your backend file is committed and located at '/app/api/contact/route.ts'."
+          );
+        } else {
+          setSubmitErrorMessage(
+            `Server Error (Status ${response.status}). Please check your Vercel Dashboard Logs for runtime/compilation errors.`
+          );
+        }
       }
     } catch (error: any) {
       console.error("Form submission error:", error);
