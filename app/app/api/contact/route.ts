@@ -2,8 +2,6 @@ import { Resend } from "resend";
 
 export const runtime = "nodejs";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 const escapeHtml = (str: string) =>
   str.replace(
     /[&<>"']/g,
@@ -19,26 +17,33 @@ const escapeHtml = (str: string) =>
 
 export async function POST(req: Request) {
   try {
+    // 1. Safe configuration check
+    const apiKey = process.env.RESEND_API_KEY;
+    if (!apiKey) {
+      return Response.json(
+        { success: false, error: "Missing RESEND_API_KEY environment variable. Please configure it in Vercel." },
+        { status: 503 }
+      );
+    }
+
+    const resend = new Resend(apiKey);
     const { name, email, subject, message } = await req.json();
 
-    // 1. Basic validation
+    // 2. Basic validation
     if (!name || !email || !subject || !message) {
       return Response.json(
-        {
-          success: false,
-          error: "All fields are required.",
-        },
+        { success: false, error: "All fields are required." },
         { status: 400 }
       );
     }
 
-    // 2. Escape client inputs for security
+    // 3. Escape client inputs for security
     const safeName = escapeHtml(name);
     const safeEmail = escapeHtml(email);
     const safeSubject = escapeHtml(subject);
     const safeMessage = escapeHtml(message).replace(/\n/g, "<br />");
 
-    // 3. Compile Admin Notification HTML (Template 2)
+    // 4. Compile Admin Notification HTML (Template 2)
     const adminHtml = `<!DOCTYPE html>
 <html lang="en">
   <head>
@@ -118,7 +123,7 @@ export async function POST(req: Request) {
   </body>
 </html>`;
 
-    // 4. Compile Visitor Auto-Reply HTML (Template 1)
+    // 5. Compile Visitor Auto-Reply HTML (Template 1)
     const autoReplyHtml = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html dir="ltr" lang="en">
   <head>
@@ -239,7 +244,7 @@ export async function POST(req: Request) {
   </body>
 </html>`;
 
-    // 5. Run both requests concurrently
+    // 6. Run requests concurrently
     const [adminRes, autoReplyRes] = await Promise.all([
       resend.emails.send({
         from: "Kamau Johnson <hello@kamaujohnson.dev>",
@@ -256,21 +261,17 @@ export async function POST(req: Request) {
       }),
     ]);
 
-    // 6. Handle errors gracefully
+    // 7. Check if admin notification failed completely
     if (adminRes.error) {
-      console.error("Admin notification failed completely:", adminRes.error);
+      console.error("Admin notification failed:", adminRes.error);
       return Response.json(
-        { success: false, error: adminRes.error.message },
+        { success: false, error: `Admin notification failed: ${adminRes.error.message}` },
         { status: 500 }
       );
     }
 
     if (autoReplyRes.error) {
-      // Log the warning but don't fail the form because the admin received the notification
-      console.warn(
-        "Auto-reply warning (Visitor email skipped):",
-        autoReplyRes.error.message
-      );
+      console.warn("Auto-reply skipped/failed:", autoReplyRes.error.message);
     }
 
     return Response.json({
@@ -280,10 +281,10 @@ export async function POST(req: Request) {
         autoReply: autoReplyRes.data,
       },
     });
-  } catch (error) {
+  } catch (error: any) {
     console.error("Unhanded server exception during dispatch:", error);
     return Response.json(
-      { success: false, error: "An unexpected server error occurred." },
+      { success: false, error: error.message || "An unexpected server error occurred." },
       { status: 500 }
     );
   }

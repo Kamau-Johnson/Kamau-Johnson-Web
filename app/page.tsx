@@ -60,11 +60,14 @@ export default function HomePage() {
     subject: "",
     message: "",
   })
+
+  
   
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'success' | 'error' | null>(null);
-
+  const [submitErrorMessage, setSubmitErrorMessage] = useState<string | null>(null);
   const [activeProjectTab, setActiveProjectTab] = useState("data")
+
   const [selectedProject, setSelectedProject] = useState<string | null>(null)
 
   const roles = ["ML Engineer", "Data Scientist","Software Developer"]
@@ -150,6 +153,7 @@ const scrollToTop = () => {
 
     setIsSubmitting(true);
     setSubmitStatus(null);
+    setSubmitErrorMessage(null); // Clear previous errors
 
     try {
       const response = await fetch("/api/contact", {
@@ -173,10 +177,12 @@ const scrollToTop = () => {
       } else {
         console.error("Form submission failed:", result.error || "Unknown error");
         setSubmitStatus("error");
+        setSubmitErrorMessage(result.error || "An unknown error occurred.");
       }
-    } catch (error) {
+    } catch (error: any) {
       console.error("Form submission error:", error);
       setSubmitStatus("error");
+      setSubmitErrorMessage(error.message || "Failed to establish a connection to the server.");
     } finally {
       setIsSubmitting(false);
     }
@@ -1423,7 +1429,11 @@ const scrollToTop = () => {
                       {isSubmitting ? 'Sending...' : 'Send Message'}
                     </Button>
                     {submitStatus === 'success' && ( <p className="text-green-400 text-center text-sm mt-4">Thank you for reaching out.</p> )}
-                    {submitStatus === 'error' && ( <p className="text-red-400 text-center text-sm mt-4">Failed to send message. Please try again or email me directly.</p> )}
+                    {submitStatus === 'error' && ( 
+                      <p className="text-red-400 text-center text-sm mt-4">
+                        {submitErrorMessage || "Failed to send message. Please try again or email me directly."}
+                      </p> 
+                    )}
                   </form>
                 </CardContent>
               </Card>
