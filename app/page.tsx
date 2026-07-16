@@ -140,7 +140,7 @@ export default function HomePage() {
     setMobileMenuOpen(false)
   }
 
-  const scrollToTop = () => {
+const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" })
   }
 
@@ -152,15 +152,28 @@ export default function HomePage() {
     setSubmitStatus(null);
 
     try {
-      // Form submission logic
-      console.log("Form data submitted:", formData);
-      setSubmitStatus("success");
-      setFormData({
-        name: "",
-        email: "",
-        subject: "",
-        message: "",
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
       });
+
+      const result = await response.json();
+
+      if (response.ok && result.success) {
+        setSubmitStatus("success");
+        setFormData({
+          name: "",
+          email: "",
+          subject: "",
+          message: "",
+        });
+      } else {
+        console.error("Form submission failed:", result.error || "Unknown error");
+        setSubmitStatus("error");
+      }
     } catch (error) {
       console.error("Form submission error:", error);
       setSubmitStatus("error");
