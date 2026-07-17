@@ -1,4 +1,3 @@
-/* src/app/globals.css (FINAL AND GUARANTEED SOLUTION) */
 
 @tailwind base;
 @tailwind components;
@@ -61,12 +60,7 @@
 }
 
 @layer base {
-  /*
-    THIS IS THE NEW, DEFINITIVE RULE.
-    The '*' selector targets EVERY element.
-    The '!important' flag ensures THIS rule always wins.
-    This forces your custom cursor on everything, no exceptions.
-  */
+
   * {
     @apply border-border;
     cursor: url('/Cursor.webp') 10 10, auto !important;
@@ -81,7 +75,7 @@
   }
 }
 
-/* Custom animations and hover effects */
+
 .card-hover {
   transition: all 0.3s ease-out;
 }

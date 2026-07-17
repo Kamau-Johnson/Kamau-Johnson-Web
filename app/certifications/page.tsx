@@ -293,16 +293,15 @@ export default function CredentialsPage() {
   const [selectedCredential, setSelectedCredential] = useState<Credential | null>(null);
   const router = useRouter();
 
-  // Base style without the specific purple hover
   const baseButtonStyle = "border-purple-600 text-purple-600 hover:text-white px-5 py-2 bg-transparent transition-all duration-300 hover:shadow-lg hover:-translate-y-1 active:scale-95 text-sm group flex items-center";
 
   return (
     <div className="min-h-screen pt-6 pb-16 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: "#F5F1EB" }}>
       <div className="max-w-6xl mx-auto">
         
-        {/* Navigation Bar Row */}
+
         <div className="flex justify-between items-center mb-10">
-            {/* Back Button pushes to Home #about */}
+
             <Button 
                 variant="outline" 
                 onClick={() => router.push('/#about')} 
@@ -334,7 +333,7 @@ export default function CredentialsPage() {
             </div>
         </div>
 
-        {/* Header Section */}
+
         <div className="mb-10">
           <div className="flex items-center gap-3 mb-2">
             <Award className="w-8 h-8 md:w-10 md:h-10 text-red-600" />
@@ -347,7 +346,7 @@ export default function CredentialsPage() {
           </p>
         </div>
 
-        {/* Certificates Grid */}
+
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {credentials.map((credential) => (
             <div key={credential.id} className="group flex flex-col gap-3">
@@ -366,7 +365,7 @@ export default function CredentialsPage() {
         </div>
       </div>
 
-      {/* Professional Popup Window */}
+
       {selectedCredential && (
         <div 
           className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4 z-50"

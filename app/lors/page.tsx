@@ -32,7 +32,6 @@ export default function LorsPage() {
     <div className="min-h-screen pt-6 pb-16 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: "#F5F1EB" }}>
       <div className="max-w-6xl mx-auto">
         
-        {/* Navigation */}
         <div className="flex justify-between items-center mb-10">
             <Button variant="outline" onClick={() => router.back()} className={buttonStyle}><FileText className="w-4 h-4 mr-2" /> Back</Button>
         </div>
@@ -47,16 +46,13 @@ export default function LorsPage() {
           </p>
         </div>
 
-        {/* 3-Column Portrait Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
           {lors.map((lor) => (
             <div key={lor.id} className="group flex flex-col">
-              {/* Portrait Image Container */}
               <div className="relative w-full aspect-[3/4] bg-white rounded-lg overflow-hidden border border-gray-300 shadow-sm hover:shadow-lg transition-all duration-300">
                 <img src={lor.image} alt="Letter" className="w-full h-full object-cover" />
               </div>
               
-              {/* View Button - Directly under the letter */}
               <button 
                 onClick={() => setSelectedLor(lor)}
                 className="mt-4 w-full py-2.5 bg-purple-600 hover:bg-purple-700 text-white font-semibold text-sm rounded-lg transition-colors duration-200 shadow-sm"
@@ -68,7 +64,6 @@ export default function LorsPage() {
         </div>
       </div>
 
-      {/* Popup Window */}
       {selectedLor && (
         <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4 z-50" onClick={() => setSelectedLor(null)}>
           <div className="bg-white rounded-xl shadow-2xl max-w-2xl w-full relative overflow-hidden animate-in fade-in slide-in-from-bottom-4 duration-300" onClick={(e) => e.stopPropagation()}>
@@ -80,7 +75,6 @@ export default function LorsPage() {
               </div>
               
               <div className="space-y-4">
-                {/* Title appears here only */}
                 <h2 className="text-2xl font-bold text-gray-900 leading-tight">{selectedLor.title}</h2>
                 
                 <div className="flex items-center justify-between bg-purple-50 p-4 rounded-lg border border-purple-100">

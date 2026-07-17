@@ -31,7 +31,6 @@ import {
   CheckCircle
 } from "lucide-react"
 
-// Static layout wrapper to completely replace scroll animations
 const AnimatedSection: React.FC<{
   children: React.ReactNode
   className?: string
@@ -44,7 +43,6 @@ const AnimatedSection: React.FC<{
   )
 }
 
-// Clean leading/trailing quotes often parsed by Next.js from CLI env setups
 const cleanEnvVar = (val: string | undefined): string => {
   if (!val) return "";
   return val.replace(/^["']|["']$/g, "").trim();
@@ -61,8 +59,6 @@ export default function HomePage() {
     message: "",
   })
 
-  
-  
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'success' | 'error' | null>(null);
   const [submitErrorMessage, setSubmitErrorMessage] = useState<string | null>(null);
@@ -143,17 +139,17 @@ export default function HomePage() {
     setMobileMenuOpen(false)
   }
 
-const scrollToTop = () => {
+  const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" })
   }
 
-const handleFormSubmit = async (e: React.FormEvent) => {
+  const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (isSubmitting) return;
 
     setIsSubmitting(true);
     setSubmitStatus(null);
-    setSubmitErrorMessage(null); // Clear previous errors
+    setSubmitErrorMessage(null);
 
     try {
       const response = await fetch("/api/contact", {
@@ -166,7 +162,6 @@ const handleFormSubmit = async (e: React.FormEvent) => {
 
       const contentType = response.headers.get("content-type");
 
-      // Safely check if the server returned a JSON response
       if (contentType && contentType.includes("application/json")) {
         const result = await response.json();
 
@@ -184,7 +179,6 @@ const handleFormSubmit = async (e: React.FormEvent) => {
           setSubmitErrorMessage(result.error || "An unknown error occurred.");
         }
       } else {
-        // The server returned an HTML page (like a 404 or 500 error from Vercel)
         const errorText = await response.text();
         console.error("Server returned non-JSON response:", errorText);
         setSubmitStatus("error");
@@ -236,7 +230,6 @@ const handleFormSubmit = async (e: React.FormEvent) => {
   ];
 
   const projects = {
-    // --- SOFTWARE DEVELOPMENT PROJECTS ---
     dev: [
       {
         id: "ovault",
@@ -282,7 +275,6 @@ const handleFormSubmit = async (e: React.FormEvent) => {
       },
     ],
 
-    // --- DATA SCIENCE PROJECTS ---
     data: [
       {
         id: "mtn-volatility",
@@ -434,7 +426,7 @@ const handleFormSubmit = async (e: React.FormEvent) => {
   if (selectedProject) { return <ProjectDetailView /> }
 
   return (
-    <div className="min-h-screen bg-slate-900 text-white relative overflow-x-hidden">
+    <div className="min-h-screen bg-slate-900 text-white relative overflow-x-hidden font-sans">
       <nav className="fixed top-0 w-full bg-slate-900/95 backdrop-blur-sm z-40 border-b border-slate-800">
         <div className="flex items-center justify-between px-4 sm:px-6 py-4 lg:px-12 max-w-screen-2xl mx-auto">
           <div className="text-xl font-bold cursor-pointer group relative" onClick={() => scrollToSection("home")}>
@@ -487,149 +479,149 @@ const handleFormSubmit = async (e: React.FormEvent) => {
         </div>
       </section>
 
-       <section id="about" className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 relative" style={{ backgroundColor: "#F5F1EB" }}>
-  <div className="max-w-6xl mx-auto">
-    <AnimatedSection>
-       <div className="text-center md:text-left mb-8 md:mb-12">
-         <h2 className="text-3xl md:text-4xl font-bold text-gray-800">About</h2>
-       </div>
-     </AnimatedSection>
-    
-     <div className="grid lg:grid-cols-2 gap-12 items-start">
-      <AnimatedSection delay={200} className="space-y-6">
-        <div className="relative">
-          <h3 className="text-xl font-semibold text-purple-600 mb-4">Who Am I?</h3>
-          <div className="space-y-4 text-gray-700 text-sm leading-relaxed">
-            <p>
-               I am a tech-savvy Computer Science professional passionate about creating impactful solutions. As a Data Scientist, aspiring Machine Learning Engineer, and Software Developer, I combine analytical thinking with coding expertise to build data-driven systems that turn complex information into actionable insights.
-            </p>
-            <h3 className="text-xl font-semibold text-purple-600 mb-4">My Journey</h3>
-            <p>
-              Beyond academics and personal projects, I'm an avid hackathon enthusiast, having participated in four local hackathons and proudly winning one at the <strong>Nairobi County Web3 and Blockchain Hackathon</strong>. I led the development of a <strong>tokenized waste recycling system</strong>, combining innovation with social impact.
-            </p>
-            <p>
-              I started as a self-taught developer, driven by curiosity and determination. I developed expertise through a combination of online courses, certifications, and hands-on projects focused on data science, leadership, and technology.
-            </p>
-            <p>
-              This journey of continuous learning and practical experience has built a strong foundation in software development, data science, and machine learning, preparing me for a career focused on building intelligent and impactful technological solutions.
-            </p>
-
-             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div className="bg-blue-50 border-l-4 border-blue-600 p-4 rounded-r-lg hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group">
-             <Code className="w-6 h-6 text-blue-600 mb-2 transition-transform duration-300 group-hover:scale-110" />
-             <h4 className="font-semibold text-blue-600 text-sm">Software Developer</h4>
-             <p className="text-xs text-gray-600">Builder of Seamless Systems</p>
-           </div>
-          <p className="text-gray-700 leading-relaxed text-sm"> I build modern, responsive web applications using HTML, CSS, JavaScript, Tailwind CSS, Next.js, Python, and SQL. </p>
-          <div className="bg-green-50 border-l-4 border-green-600 p-4 rounded-r-lg hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group">
-             <Database className="w-6 h-6 text-green-600 mb-2 transition-transform duration-300 group-hover:scale-110" />
-             <h4 className="font-semibold text-green-600 text-sm">Data Scientist and ML Engineer</h4>
-             <p className="text-xs text-gray-600">Machine learning, analytics, predictive modeling</p>
-           </div>
-          <p className="text-gray-700 leading-relaxed text-sm"> For data science and machine learning, I use Python, SQL, and libraries such as Pandas, NumPy, and Scikit-learn to analyze data, build models, and extract insights. </p>
-        </div>
-      
-             <h3 className="text-xl font-semibold text-purple-600 mb-4">Career</h3>
-            <ul className="list-disc list-inside space-y-2">
-              <li><strong>Bachelor of Science in Computer Science</strong> – Catholic University of Eastern Africa (CUEA)</li>
-              <li><strong>Diploma in Computer Science</strong> – Zetech University (ZU)</li>
-              <li><strong>Applied Data Science</strong> – WorldQuant University (WQU)</li>
-              <li><strong>Deep Learning</strong> – WorldQuant University (WQU)</li>
-              <li><strong>Computer Vision</strong> – WorldQuant University (WQU)</li>
-              <li><strong>Software Development</strong> – Power Learn Project (PLP)</li>
-              <li><strong>Diploma in Leadership and Management Styles</strong> – Alison University (AU)</li>
-            </ul>
-          </div>
-        </div>
-
-         <div className="pt-4 flex flex-col gap-4 items-start">
-  <p className="text-gray-700 text-base max-w-2xl">
-    These are all my credentials, reflecting a self-driven learning journey and accredited by verified organizations.
-  </p>
- <Link href="/certifications">
-  <Button
-    variant="outline"
-    className="border-red-600 text-blue-600 hover:bg-red-600 hover:text-white px-6 py-2 bg-transparent transition-all duration-300 hover:shadow-lg hover:-translate-y-1 active:scale-95 text-sm group"
-  >
-    <Award className="w-4 h-4 mr-2 transition-transform duration-300 group-hover:scale-110" /> Certifications
-  </Button>
-</Link>
-  
-  <p className="text-gray-700 text-base max-w-2xl">
-    Below is my CV and Digital Business Card...Get to know me.
-  </p>
-
-<div className="flex items-center gap-4 flex-wrap">
-  <a href="/Kamau Johnson's Resume.pdf" download target="_blank" rel="noopener noreferrer">
-    <Button
-      variant="outline"
-      className="border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white px-6 py-2 bg-transparent transition-all duration-300 hover:shadow-lg hover:-translate-y-1 active:scale-95 text-sm group"
-    >
-      <Download className="w-4 h-4 mr-2 transition-transform duration-300 group-hover:scale-110" />
-      Download Resume
-    </Button>
-  </a>
-
-  <a href="/Kamau Johnson's Business Card.pdf" download target="_blank" rel="noopener noreferrer">
-    <Button
-      variant="outline"
-      className="border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white px-6 py-2 bg-transparent transition-all duration-300 hover:shadow-lg hover:-translate-y-1 active:scale-95 text-sm group"
-    >
-      <Download className="w-4 h-4 mr-2 transition-transform duration-300 group-hover:scale-110" />
-      Digital Business Card
-    </Button>
-  </a>
-</div>
-</div>
-      </AnimatedSection>
-      <AnimatedSection delay={400} className="space-y-6">
-        <div className="flex justify-center mb-6">
-          <div className="relative group">
-             <Image src="/About Coder.gif" alt="Coding animation" width={300} height={200} className="rounded-lg shadow-lg transition-transform duration-300 group-hover:scale-105" unoptimized />
-             <div className="absolute inset-0 bg-gradient-to-t from-purple-600/10 to-transparent rounded-lg"></div>
-           </div>
-        </div>
-        <h3 className="text-xl font-semibold text-purple-600 flex items-center">Why I Love Tech</h3>
-        <p className="text-gray-700 leading-relaxed text-sm"> I believe technology is a powerful catalyst for change, capable of transforming lives and addressing real-world challenges. Whether it's developing web applications that empower businesses or creating data models that uncover valuable insights, I am driven by the opportunity to build meaningful and impactful solutions through code. To me, technology is not just about building—it's about solving, serving, and scaling human potential. </p>
-        
-        <h3 className="text-xl font-semibold text-purple-600 flex items-center">Mentor</h3>
-        <p className="text-gray-700 leading-relaxed text-sm">I am deeply grateful for the mentorship and guidance that continue to support and inspire my growth in the technology field.</p>
-        
-         <div className="flex flex-col sm:flex-row items-center sm:items-start gap-5 mt-4 group">
-          <div className="relative w-28 h-28 flex-shrink-0">
-             <div className="absolute inset-0 bg-purple-600 rounded-full animate-pulse opacity-20 group-hover:opacity-40 transition-opacity"></div>
-             <div className="relative w-full h-full rounded-full border-2 border-purple-600 p-1 bg-white overflow-hidden shadow-lg transition-transform duration-500 group-hover:scale-105">
-               <Image
-                 src={mentor.image}
-                 alt={mentor.name}
-                 fill
-                 className="object-cover rounded-full"
-               />
+      <section id="about" className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 relative" style={{ backgroundColor: "#F5F1EB" }}>
+        <div className="max-w-6xl mx-auto">
+          <AnimatedSection>
+             <div className="text-center md:text-left mb-8 md:mb-12">
+               <h2 className="text-3xl md:text-4xl font-bold text-gray-800">About</h2>
              </div>
-          </div>
-          <div className="flex flex-col justify-center text-center sm:text-left">
-     <div className="flex items-center justify-center sm:justify-start gap-1 mb-1">
-    <h4 className="font-bold text-gray-800 text-lg">{mentor.name}</h4>
-     <CheckCircle className="w-4 h-4 text-blue-500 fill-blue-500 stroke-white stroke-[1.5]" />
-  </div>
-   <p className="text-xs text-purple-600 font-medium mb-1">
-    {mentor.work}
-  </p>
-   <p className="text-xs text-gray-600 leading-relaxed max-w-sm">
-    "{mentor.impact}"
-  </p>
- </div>
-        </div>
+           </AnimatedSection>
+          
+           <div className="grid lg:grid-cols-2 gap-12 items-start">
+            <AnimatedSection delay={200} className="space-y-6">
+              <div className="relative">
+                <h3 className="text-xl font-semibold text-purple-600 mb-4">Who Am I?</h3>
+                <div className="space-y-4 text-gray-700 text-sm leading-relaxed">
+                  <p>
+                     I am a tech-savvy Computer Science professional passionate about creating impactful solutions. As a Data Scientist, aspiring Machine Learning Engineer, and Software Developer, I combine analytical thinking with coding expertise to build data-driven systems that turn complex information into actionable insights.
+                  </p>
+                  <h3 className="text-xl font-semibold text-purple-600 mb-4">My Journey</h3>
+                  <p>
+                    Beyond academics and personal projects, I'm an avid hackathon enthusiast, having participated in four local hackathons and proudly winning one at the <strong>Nairobi County Web3 and Blockchain Hackathon</strong>. I led the development of a <strong>tokenized waste recycling system</strong>, combining innovation with social impact.
+                  </p>
+                  <p>
+                    I started as a self-taught developer, driven by curiosity and determination. I developed expertise through a combination of online courses, certifications, and hands-on projects focused on data science, leadership, and technology.
+                  </p>
+                  <p>
+                    This journey of continuous learning and practical experience has built a strong foundation in software development, data science, and machine learning, preparing me for a career focused on building intelligent and impactful technological solutions.
+                  </p>
 
-         <h3 className="text-xl font-semibold text-purple-600 flex items-center pt-6">Next Goal</h3>
-        <p className="text-gray-700 leading-relaxed text-sm">I have completed my self-learning in Data Science and Software Development and am now pursuing internships and remote opportunities. These roles will enable me to gain hands-on experience, apply my skills to real-world projects, and continue growing professionally while completing my Bachelor's in Computer Science.</p>
-        <h3 className="text-xl font-semibold text-purple-600 flex items-center pt-6">End Goal</h3>
-        <p className="text-gray-700 leading-relaxed text-sm">Building on this foundation, I aim to become a Machine Learning Engineer, creating intelligent systems that solve complex problems and make a real-world impact.</p>
-        <Button onClick={() => scrollToSection("contact")} className="w-full bg-purple-600 hover:bg-purple-700 text-white transition-all duration-300 hover:shadow-lg hover:-translate-y-1 active:scale-95 text-sm py-2 group" > Let's Connect <ChevronRight className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" /> </Button>
-      </AnimatedSection>
-    </div>
-  </div>
-</section>
+                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div className="bg-blue-50 border-l-4 border-blue-600 p-4 rounded-r-lg hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group">
+                       <Code className="w-6 h-6 text-blue-600 mb-2 transition-transform duration-300 group-hover:scale-110" />
+                       <h4 className="font-semibold text-blue-600 text-sm">Software Developer</h4>
+                       <p className="text-xs text-gray-600">Builder of Seamless Systems</p>
+                     </div>
+                    <p className="text-gray-700 leading-relaxed text-sm"> I build modern, responsive web applications using HTML, CSS, JavaScript, Tailwind CSS, Next.js, Python, and SQL. </p>
+                    <div className="bg-green-50 border-l-4 border-green-600 p-4 rounded-r-lg hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group">
+                       <Database className="w-6 h-6 text-green-600 mb-2 transition-transform duration-300 group-hover:scale-110" />
+                       <h4 className="font-semibold text-green-600 text-sm">Data Scientist and ML Engineer</h4>
+                       <p className="text-xs text-gray-600">Machine learning, analytics, predictive modeling</p>
+                     </div>
+                    <p className="text-gray-700 leading-relaxed text-sm"> For data science and machine learning, I use Python, SQL, and libraries such as Pandas, NumPy, and Scikit-learn to analyze data, build models, and extract insights. </p>
+                  </div>
+            
+                   <h3 className="text-xl font-semibold text-purple-600 mb-4">Career</h3>
+                  <ul className="list-disc list-inside space-y-2">
+                    <li><strong>Bachelor of Science in Computer Science</strong> – Catholic University of Eastern Africa (CUEA)</li>
+                    <li><strong>Diploma in Computer Science</strong> – Zetech University (ZU)</li>
+                    <li><strong>Applied Data Science</strong> – WorldQuant University (WQU)</li>
+                    <li><strong>Deep Learning</strong> – WorldQuant University (WQU)</li>
+                    <li><strong>Computer Vision</strong> – WorldQuant University (WQU)</li>
+                    <li><strong>Software Development</strong> – Power Learn Project (PLP)</li>
+                    <li><strong>Diploma in Leadership and Management Styles</strong> – Alison University (AU)</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div className="pt-4 flex flex-col gap-4 items-start">
+                <p className="text-gray-700 text-base max-w-2xl">
+                  These are all my credentials, reflecting a self-driven learning journey and accredited by verified organizations.
+                </p>
+                <Link href="/certifications">
+                  <Button
+                    variant="outline"
+                    className="border-red-600 text-blue-600 hover:bg-red-600 hover:text-white px-6 py-2 bg-transparent transition-all duration-300 hover:shadow-lg hover:-translate-y-1 active:scale-95 text-sm group"
+                  >
+                    <Award className="w-4 h-4 mr-2 transition-transform duration-300 group-hover:scale-110" /> Certifications
+                  </Button>
+                </Link>
+                
+                <p className="text-gray-700 text-base max-w-2xl">
+                  Below is my CV and Digital Business Card...Get to know me.
+                </p>
+
+                <div className="flex items-center gap-4 flex-wrap">
+                  <a href="/Kamau Johnson's Resume.pdf" download target="_blank" rel="noopener noreferrer">
+                    <Button
+                      variant="outline"
+                      className="border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white px-6 py-2 bg-transparent transition-all duration-300 hover:shadow-lg hover:-translate-y-1 active:scale-95 text-sm group"
+                    >
+                      <Download className="w-4 h-4 mr-2 transition-transform duration-300 group-hover:scale-110" />
+                      Download Resume
+                    </Button>
+                  </a>
+
+                  <a href="/Kamau Johnson's Business Card.pdf" download target="_blank" rel="noopener noreferrer">
+                    <Button
+                      variant="outline"
+                      className="border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white px-6 py-2 bg-transparent transition-all duration-300 hover:shadow-lg hover:-translate-y-1 active:scale-95 text-sm group"
+                    >
+                      <Download className="w-4 h-4 mr-2 transition-transform duration-300 group-hover:scale-110" />
+                      Digital Business Card
+                    </Button>
+                  </a>
+                </div>
+              </div>
+            </AnimatedSection>
+            <AnimatedSection delay={400} className="space-y-6">
+              <div className="flex justify-center mb-6">
+                <div className="relative group">
+                   <Image src="/About Coder.gif" alt="Coding animation" width={300} height={200} className="rounded-lg shadow-lg transition-transform duration-300 group-hover:scale-105" unoptimized />
+                   <div className="absolute inset-0 bg-gradient-to-t from-purple-600/10 to-transparent rounded-lg"></div>
+                 </div>
+              </div>
+              <h3 className="text-xl font-semibold text-purple-600 flex items-center">Why I Love Tech</h3>
+              <p className="text-gray-700 leading-relaxed text-sm"> I believe technology is a powerful catalyst for change, capable of transforming lives and addressing real-world challenges. Whether it's developing web applications that empower businesses or creating data models that uncover valuable insights, I am driven by the opportunity to build meaningful and impactful solutions through code. To me, technology is not just about building—it's about solving, serving, and scaling human potential. </p>
+              
+              <h3 className="text-xl font-semibold text-purple-600 flex items-center">Mentor</h3>
+              <p className="text-gray-700 leading-relaxed text-sm">I am deeply grateful for the mentorship and guidance that continue to support and inspire my growth in the technology field.</p>
+              
+               <div className="flex flex-col sm:flex-row items-center sm:items-start gap-5 mt-4 group">
+                <div className="relative w-28 h-28 flex-shrink-0">
+                   <div className="absolute inset-0 bg-purple-600 rounded-full animate-pulse opacity-20 group-hover:opacity-40 transition-opacity"></div>
+                   <div className="relative w-full h-full rounded-full border-2 border-purple-600 p-1 bg-white overflow-hidden shadow-lg transition-transform duration-500 group-hover:scale-105">
+                     <Image
+                       src={mentor.image}
+                       alt={mentor.name}
+                       fill
+                       className="object-cover rounded-full"
+                     />
+                   </div>
+                </div>
+                <div className="flex flex-col justify-center text-center sm:text-left">
+                  <div className="flex items-center justify-center sm:justify-start gap-1 mb-1">
+                    <h4 className="font-bold text-gray-800 text-lg">{mentor.name}</h4>
+                    <CheckCircle className="w-4 h-4 text-blue-500 fill-blue-500 stroke-white stroke-[1.5]" />
+                  </div>
+                  <p className="text-xs text-purple-600 font-medium mb-1">
+                    {mentor.work}
+                  </p>
+                  <p className="text-xs text-gray-600 leading-relaxed max-w-sm">
+                    "{mentor.impact}"
+                  </p>
+                </div>
+              </div>
+
+              <h3 className="text-xl font-semibold text-purple-600 flex items-center pt-6">Next Goal</h3>
+              <p className="text-gray-700 leading-relaxed text-sm">I have completed my self-learning in Data Science and Software Development and am now pursuing internships and remote opportunities. These roles will enable me to gain hands-on experience, apply my skills to real-world projects, and continue growing professionally while completing my Bachelor's in Computer Science.</p>
+              <h3 className="text-xl font-semibold text-purple-600 flex items-center pt-6">End Goal</h3>
+              <p className="text-gray-700 leading-relaxed text-sm">Building on this foundation, I aim to become a Machine Learning Engineer, creating intelligent systems that solve complex problems and make a real-world impact.</p>
+              <Button onClick={() => scrollToSection("contact")} className="w-full bg-purple-600 hover:bg-purple-700 text-white transition-all duration-300 hover:shadow-lg hover:-translate-y-1 active:scale-95 text-sm py-2 group" > Let's Connect <ChevronRight className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" /> </Button>
+            </AnimatedSection>
+          </div>
+        </div>
+      </section>
 
       <section id="skills" className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-black text-white">
         <div className="max-w-7xl mx-auto">
@@ -659,11 +651,9 @@ const handleFormSubmit = async (e: React.FormEvent) => {
         </div>
       </section>
 
-      {/* ===================== PROJECTS SECTION ===================== */}
       <section id="projects" className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="max-w-6xl mx-auto">
 
-          {/* Header */}
           <AnimatedSection>
             <div className="text-center md:text-left mb-12 md:mb-16">
               <h2 className="text-3xl lg:text-4xl font-bold mb-6 text-gray-800">Projects</h2>
@@ -691,7 +681,6 @@ const handleFormSubmit = async (e: React.FormEvent) => {
             </div>
           </AnimatedSection>
 
-          {/* Tab Toggle — only Software Dev and Data Science */}
           <AnimatedSection delay={200}>
             <div className="flex justify-center md:justify-start mb-12">
               <div className="inline-flex items-center bg-gray-200/50 p-1 rounded-xl backdrop-blur-sm border border-gray-300/20">
@@ -715,10 +704,8 @@ const handleFormSubmit = async (e: React.FormEvent) => {
             </div>
           </AnimatedSection>
 
-          {/* ── TAB: SOFTWARE DEV ── */}
           {activeProjectTab === "dev" && (
             <>
-              {/* Software Dev grid */}
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {projects.dev.map((project, index) => (
                   <AnimatedSection key={`dev-${project.id}-${index}`} delay={index * 100}>
@@ -755,7 +742,6 @@ const handleFormSubmit = async (e: React.FormEvent) => {
                 ))}
               </div>
 
-              {/* Software Dev carousel — directly below the grid */}
               <AnimatedSection delay={400}>
                 <div className="mt-16 pt-8 border-t-2 border-gray-500">
                   <div className="flex items-center gap-3 mb-2">
@@ -773,10 +759,8 @@ const handleFormSubmit = async (e: React.FormEvent) => {
             </>
           )}
 
-          {/* ── TAB: DATA SCIENCE ── */}
           {activeProjectTab === "data" && (
             <>
-              {/* Data Science grid */}
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {projects.data.map((project, index) => (
                   <AnimatedSection key={`data-${project.id}-${index}`} delay={index * 100}>
@@ -813,7 +797,6 @@ const handleFormSubmit = async (e: React.FormEvent) => {
                 ))}
               </div>
 
-              {/* Data Science carousel — directly below the grid */}
               <AnimatedSection delay={400}>
                 <div className="mt-16 pt-8 border-t-2 border-purple-100">
                   <div className="flex items-center gap-3 mb-2">
@@ -831,7 +814,6 @@ const handleFormSubmit = async (e: React.FormEvent) => {
             </>
           )}
 
-          {/* View All Button */}
           <AnimatedSection delay={600}>
             <div className="text-center mt-16">
               <Button
@@ -851,7 +833,6 @@ const handleFormSubmit = async (e: React.FormEvent) => {
       <section id="achievements" className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-black">
         <div className="max-w-6xl mx-auto">
           
-          {/* Header Section */}
           <AnimatedSection>
             <div className="text-center md:text-left mb-12 md:mb-16">
               <h2 className="text-3xl lg:text-4xl font-bold mb-6 text-white">Achievements</h2>
@@ -866,42 +847,37 @@ const handleFormSubmit = async (e: React.FormEvent) => {
           <AnimatedSection delay={100}>
             <h3 className="text-xl font-semibold text-blue-600 mb-4 uppercase tracking-wide">Highlights</h3>
             
-            <div className="relative group mb-20">
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-transparent rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
-
-              <div className="relative overflow-hidden rounded-2x5 border border-slate-800 group-hover:border-blue-600/50 transition-all duration-500 shadow-2x5">
+            <div className="relative mb-20">
+              <div className="relative overflow-hidden rounded-2xl border border-slate-800 shadow-2xl">
                 <Image 
                    src="/BebaPay Hackathon.webp" 
                    alt="Nairobi County Hackathon" 
                    width={1200} 
                    height={600} 
-                   className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-[1.02]" 
+                   className="w-full h-auto object-cover" 
                  />
                 
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-70"></div>
                 
-               <div className="absolute bottom-2 left-4 md:bottom-3 md:left-6">
-                <h4 className="text-sm md:text-base font-bold text-white">
-                  Nairobi County Hackathon
-                </h4>
-                <p className="text-xs md:text-sm text-white/90 font-medium">
-                  Winners • $1000 Cash Prize
-                </p>
-              </div>
-                
+                <div className="absolute bottom-2 left-4 md:bottom-3 md:left-6">
+                  <h4 className="text-sm md:text-base font-bold text-white">
+                    Nairobi County Hackathon
+                  </h4>
+                  <p className="text-xs md:text-sm text-white/90 font-medium">
+                    Winners • $1000 Cash Prize
+                  </p>
+                </div>
               </div>
 
-              {/* WQU International Recognition Spotlights (Image left, 3/4 Video and text right) */}
               <div className="grid grid-cols-1 lg:grid-cols-7 gap-8 items-stretch mt-12 mb-20">
 
-                {/* Left Column: Spotlight Image (Updated height container classes to show beautifully on mobile) */}
                 <div className="lg:col-span-4 flex flex-col h-full min-h-[280px] sm:min-h-[380px] lg:min-h-0">
-                  <div className="relative flex-1 h-full overflow-hidden rounded-2x5 border border-slate-800 hover:border-blue-600/30 transition-all duration-500 shadow-2x5">
+                  <div className="relative flex-1 h-full overflow-hidden rounded-2xl border border-slate-800 shadow-2xl">
                     <Image
                       src="/World Quant University Recognition 1.webp"
                       alt="WQU Spotlight Feature Image"
                       fill
-                      className="object-cover object-center transition-transform duration-700 hover:scale-[1.02]"
+                      className="object-cover object-center"
                       priority
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-70"></div>
@@ -917,7 +893,6 @@ const handleFormSubmit = async (e: React.FormEvent) => {
                   </div>
                 </div>
 
-                {/* Right Column: Autoplay Video & Details (Spans 3 columns - exactly 3/4 width of the left image column) */}
                 <div className="lg:col-span-3 flex flex-col justify-between bg-slate-900/50 p-6 rounded-2xl border border-slate-800 hover:border-blue-600/30 transition-all duration-300">
                   <div className="space-y-5">
                     <div className="w-full aspect-video overflow-hidden">
@@ -978,7 +953,7 @@ const handleFormSubmit = async (e: React.FormEvent) => {
 
               <AnimatedSection delay={300} className="flex flex-col">
                 <h3 className="text-xl font-semibold text-blue-600 mb-8 uppercase tracking-wide">MOMENTS FROM MY JOURNEY</h3>
-                <div className="relative overflow-hidden rounded-2x5 border border-slate-800 group-hover:border-blue-600/50 transition-all duration-500 h-full min-h-[300px]">
+                <div className="relative overflow-hidden rounded-2xl border border-slate-800 group-hover:border-blue-600/50 transition-all duration-500 h-full min-h-[300px]">
                   <Image 
                      src="/Power Hacks Hackathon.webp" 
                      alt="Power Hacks Moment" 
@@ -1005,7 +980,6 @@ const handleFormSubmit = async (e: React.FormEvent) => {
                     Our pitch was selected among the <strong className="text-white">top 5 team ideas</strong>, and we were given two weeks to develop a fully functional system. I coordinated the team's tasks, designed the smart contract layer, and ensured the platform architecture was robust and scalable.
                   </p>
                   
-                  {/* Hackathon Video Button Link */}
                   <div className="mb-6 pt-4 border-t border-slate-800">
                     <a
                       href="https://www.youtube.com/watch?v=JbDHmszQxlM&t=1s"
@@ -1040,7 +1014,7 @@ const handleFormSubmit = async (e: React.FormEvent) => {
               </AnimatedSection>
 
               <AnimatedSection delay={500} className="flex flex-col">
-                <div className="relative overflow-hidden rounded-2x5 border border-slate-800 group-hover:border-blue-600/50 transition-all duration-500 h-full min-h-[300px]">
+                <div className="relative overflow-hidden rounded-2xl border border-slate-800 group-hover:border-blue-600/50 transition-all duration-500 h-full min-h-[300px]">
                   <Image 
                      src="/BebaPay Hackathon.webp" 
                      alt="Blockchain Bootcamp Detail" 
@@ -1050,7 +1024,7 @@ const handleFormSubmit = async (e: React.FormEvent) => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60"></div>
                 </div>
                 <br />
-                <div className="relative overflow-hidden rounded-2x5 border border-slate-800 group-hover:border-blue-600/50 transition-all duration-500 h-full min-h-[300px]">
+                <div className="relative overflow-hidden rounded-2xl border border-slate-800 group-hover:border-blue-600/50 transition-all duration-500 h-full min-h-[300px]">
                   <Image 
                      src="/Blockchain Bootcamp 1.webp" 
                      alt="Blockchain Bootcamp Detail" 
@@ -1062,9 +1036,8 @@ const handleFormSubmit = async (e: React.FormEvent) => {
               </AnimatedSection>
             </div>
 
-            {/* ===================== ZETECH UNIVERSITY (IMAGE LEFT, TEXT RIGHT) ===================== */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
-              <div className="relative overflow-hidden rounded-2x5 border border-slate-800 group-hover:border-blue-600/50 transition-all duration-500 h-full min-h-[300px] sm:min-h-[400px] lg:min-h-[550px]">
+              <div className="relative overflow-hidden rounded-2xl border border-slate-800 group-hover:border-blue-600/50 transition-all duration-500 h-full min-h-[300px] sm:min-h-[400px] lg:min-h-[550px]">
                 <Image 
                   src="/Diploma Graduation pic.webp" 
                   alt="Diploma in Computer Science Graduation" 
@@ -1112,7 +1085,6 @@ const handleFormSubmit = async (e: React.FormEvent) => {
               </AnimatedSection>
             </div>
 
-            {/* ===================== WORLDQUANT UNIVERSITY (TEXT LEFT, SPLIT IMAGES RIGHT) ===================== */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
               <AnimatedSection delay={800} className="flex flex-col justify-center">
                 <h3 className="text-xl font-semibold text-blue-600 mb-8 uppercase tracking-wide">Advanced Studies in Data Science</h3>
@@ -1126,7 +1098,6 @@ const handleFormSubmit = async (e: React.FormEvent) => {
                       My passion for continuous learning and advancing my expertise in artificial intelligence led me to <strong className="text-white">WorldQuant University</strong>, where I pursued <strong className="text-white">Advanced Studies in Data Science</strong> through a rigorous, project based curriculum. The experience strengthened my analytical mindset, sharpened my problem solving abilities, and equipped me with practical skills to develop intelligent, data driven solutions for real world challenges while continuously adapting to emerging technologies.
                     </p>
 
-                    {/* Subsections Cards */}
                     <div className="space-y-4 mb-6">
                       <div className="bg-black/30 p-4 rounded-xl border border-slate-800/80 hover:border-blue-600/40 transition-all duration-300">
                         <h5 className="text-xs font-bold text-blue-500 uppercase tracking-wider mb-1.5">Applied Data Science</h5>
@@ -1151,7 +1122,6 @@ const handleFormSubmit = async (e: React.FormEvent) => {
                     </div>
                   </div>
 
-                  {/* YouTube Video Button Link */}
                   <div className="mb-6 pt-4 border-t border-slate-800">
                     <a 
                       href="https://www.youtube.com/watch?v=cc8T8MimqQ8&t=115s" 
@@ -1186,7 +1156,7 @@ const handleFormSubmit = async (e: React.FormEvent) => {
               </AnimatedSection>
 
               <div className="flex flex-col gap-4 h-full">
-                <div className="relative overflow-hidden rounded-2x5 border border-slate-800 group-hover:border-blue-600/50 transition-all duration-500 flex-1 min-h-[260px]">
+                <div className="relative overflow-hidden rounded-2xl border border-slate-800 group-hover:border-blue-600/50 transition-all duration-500 flex-1 min-h-[260px]">
                   <Image 
                     src="/Kamau Johnson World Quant Uni.webp" 
                     alt="WorldQuant University Graduation - Pic 1" 
@@ -1195,7 +1165,7 @@ const handleFormSubmit = async (e: React.FormEvent) => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60"></div>
                 </div>
-                <div className="relative overflow-hidden rounded-2x5 border border-slate-800 group-hover:border-blue-600/50 transition-all duration-500 flex-1 min-h-[260px]">
+                <div className="relative overflow-hidden rounded-2xl border border-slate-800 group-hover:border-blue-600/50 transition-all duration-500 flex-1 min-h-[260px]">
                   <Image 
                     src="/Kamau Johnson World Quant Uni with Badges.webp" 
                     alt="WorldQuant University Graduation - Pic 2" 
@@ -1207,9 +1177,7 @@ const handleFormSubmit = async (e: React.FormEvent) => {
               </div>
             </div>
 
-            {/* ===================== WORLDQUANT UNIVERSITY GLOBAL RECOGNITION ===================== */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
-              {/* Left Content */}
               <AnimatedSection delay={900} className="flex flex-col justify-center">
                 <div className="bg-slate-900/50 p-6 md:p-8 rounded-2xl border border-slate-800 backdrop-blur-sm hover:border-blue-600/30 transition-all duration-300 group h-full">
 
@@ -1243,7 +1211,7 @@ const handleFormSubmit = async (e: React.FormEvent) => {
                       href="https://www.wqu.edu/alumni/spotlight/kamau"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2.5 px-5 py-2.5 bg-[#0F1E36] hover:bg-[#1A2E4C] border border-[#233A5E]/40 text-white font-semibold text-sm transition-all duration-300 hover:shadow-lg hover:shadow-blue-950/25 hover:-translate-y-0.5 active:scale-95 group select-none cursor-pointer"
+                      className="inline-flex items-center gap-2.5 bg-[#0F1E36] hover:bg-[#1A2E4C] border border-[#233A5E]/40 text-white font-semibold text-sm transition-all duration-300 hover:shadow-lg hover:shadow-blue-950/25 hover:-translate-y-0.5 active:scale-95 group select-none cursor-pointer"
                     >
                       <svg
                         className="w-5 h-5 text-blue-400 transition-transform duration-300 group-hover:scale-110"
@@ -1268,9 +1236,8 @@ const handleFormSubmit = async (e: React.FormEvent) => {
                 </div>
               </AnimatedSection>
 
-              {/* Right Image - Sharp Corners */}
               <AnimatedSection delay={1000} className="flex flex-col">
-                <div className="relative overflow-hidden border border-slate-800 hover:border-blue-600/40 transition-all duration-500 h-full min-h-[320px]">
+                <div className="relative overflow-hidden border border-slate-800 hover:border-blue-600/40 transition-all duration-500 h-full min-h-[320px] rounded-none">
                   <Image
                     src="/World Quant University Recognition.webp"
                     alt="WorldQuant University Africa's Story of the Week"
@@ -1285,165 +1252,152 @@ const handleFormSubmit = async (e: React.FormEvent) => {
         </div>
       </section>
 
-<section
-  id="recommendations"
-  className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 relative"
-  style={{ backgroundColor: "#DFC3B2" }}
->
-  <div className="max-w-6xl mx-auto">
-    <AnimatedSection>
-      {/* Header */}
-      <div className="mb-12 md:mb-16">
-        <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-gray-800">
-          Recommendations
-        </h2>
-        <p className="text-sm text-gray-700 max-w-2xl leading-relaxed font-normal">
-          Recommendations from industry professionals and recognition from organizations that have evaluated my technical ability, work ethic, leadership, and commitment to continuous learning.
-        </p>
-      </div>
-
-      {/* Main Two-Column Grid Layout */}
-      <div className="grid lg:grid-cols-2 gap-10 items-start">
-        
-        {/* Left Column: Professional Testimonials */}
-        <div className="space-y-6">
-          
-          {/* Mentor Segment */}
-          <div>
-            <h3 className="text-lg font-semibold text-blue-600 mb-2">
-              Mentor
-            </h3>
-            <p className="text-xs md:text-sm text-gray-700 font-normal mb-3 leading-relaxed">
-              During my technical mentorship, Antony Kariuki, Manager of Investment Reporting at Prudential Financial Inc (Bermuda), observed my technical growth, leadership, and commitment to continuous improvement. Here's his recommendation:
-            </p>
-            <div className="bg-white p-4 rounded-md border border-gray-300 shadow-sm">
-              <div className="flex items-start gap-3 mb-3">
-                <div className="relative w-10 h-10 flex-shrink-0">
-                  <Image
-                    src="/Mentor1.webp"
-                    alt="Antony Kariuki"
-                    fill
-                    className="object-cover rounded-full border border-gray-200"
-                  />
-                </div>
-                <div>
-                  <div className="flex items-center gap-1">
-                    <h4 className="font-semibold text-xs md:text-sm text-gray-900">Antony Kariuki</h4>
-                    <CheckCircle className="w-3.5 h-3.5 text-blue-500 fill-blue-500 stroke-white stroke-[1.5]" />
-                    <span className="text-[10px] md:text-xs text-gray-500 font-normal ml-1">• 1st</span>
-                  </div>
-                  <p className="text-[10px] md:text-xs text-gray-600 leading-tight">
-                    Manager, Investment Reporting - Prudential Financial Inc
-                  </p>
-                  <p className="text-[9px] md:text-[10px] text-gray-500 mt-0.5">
-                    March 28, 2026, Antony was Kamau's mentor
-                  </p>
-                </div>
-              </div>
-              <div className="text-xs md:text-[13px] text-gray-700 space-y-2 font-normal leading-relaxed text-left">
-                <p>
-                  Kamau consistently demonstrates exceptional curiosity, discipline, and a genuine passion for technology. Throughout our mentorship, he approached every challenge with analytical thinking, professionalism, and a willingness to learn. Beyond his technical abilities in software engineering and data science, he naturally leads by example, collaborates effectively, and remains committed to delivering meaningful solutions. I am confident he will make a valuable contribution to any engineering team.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Supervisor Segment */}
-          <div>
-            <h3 className="text-lg font-semibold text-blue-600 mb-2">
-              Supervisor I've worked under in same organization
-            </h3>
-            <p className="text-xs md:text-sm text-gray-700 font-normal mb-3 leading-relaxed">
-              While working as a Programmer at Agro Chemical and Food Company Limited, I reported directly to Paul Musee. Based on our professional experience together, he shared the following recommendation:
-            </p>
-            <div className="bg-white p-4 rounded-md border border-gray-300 shadow-sm">
-              <div className="flex items-start gap-3 mb-3">
-                <div className="relative w-10 h-10 flex-shrink-0">
-                  <Image
-                    src="/Paul Musee Mentor Logo.webp"
-                    alt="Paul Musee"
-                    fill
-                    className="object-cover rounded-full border border-gray-200"
-                  />
-                </div>
-                <div>
-                  <div className="flex items-center gap-1">
-                    <h4 className="font-semibold text-xs md:text-sm text-gray-900">Paul Musee</h4>
-                    <span className="text-[10px] md:text-xs text-gray-500 font-normal ml-1">• 1st</span>
-                  </div>
-                  <p className="text-[10px] md:text-xs text-gray-600 leading-tight">
-                    --
-                  </p>
-                  <p className="text-[9px] md:text-[10px] text-gray-500 mt-0.5">
-                    August 29, 2025, Paul managed Kamau directly
-                  </p>
-                </div>
-              </div>
-              <div className="text-xs md:text-[13px] text-gray-700 space-y-2 font-normal leading-relaxed text-left">
-                <p>
-                  Kamau consistently delivered reliable, well-structured, and maintainable software solutions while demonstrating strong problem-solving skills and professionalism. He quickly translated business requirements into efficient technical implementations and worked effectively with colleagues across different teams. His technical expertise, attention to detail, and positive attitude make him an excellent software engineer with significant potential for continued growth.
-                </p>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-        {/* Right Column: WorldQuant University Spotlight */}
-        <div className="flex flex-col items-center lg:items-start lg:pl-4">
-          <h3 className="text-lg font-semibold text-blue-600 mb-2 w-full text-center lg:text-left">
-            Organisation
-          </h3>
-          <p className="text-xs md:text-sm text-gray-700 font-normal mb-3 leading-relaxed text-center lg:text-left w-full">
-  WorldQuant University internationally recognized my work in Data Science and Software Engineering, acknowledging my commitment to continuous learning, practical innovation, and applying technology to solve real-world challenges. Here's what they said about me:
-</p>
-          
-          <div
-            className="relative overflow-hidden border-2 border-slate-700 shadow-xl mb-6 mx-auto lg:mx-0"
-            style={{
-              width: "6cm",
-              height: "7cm",
-            }}
-          >
-            <Image
-              src="/World Quant University Recognition 2.webp"
-              alt="WorldQuant University Recognition"
-              fill
-              className="object-cover"
-            />
-          </div>
-
-          <div className="text-center lg:text-left">
-            <span className="inline-block px-3 py-1 text-xs font-semibold tracking-wide uppercase bg-slate-800 text-white mb-4">
-              International Recognition
-            </span>
-            <h3 className="text-2xl font-bold text-gray-800 mb-3">
-              <h3 className="text-2xl font-bold text-gray-800 mb-3">
-                Featured by WorldQuant University
-</h3>
-            </h3>
-            <p className="text-sm text-gray-700 leading-relaxed mb-4">
-  WorldQuant University recognized my work and learning journey after I successfully completed its <strong>Data Science Lab</strong>, <strong>Deep Learning Lab</strong>, and <strong>Computer Vision Lab</strong> certificate programs while pursuing my undergraduate degree in Computer Science. The recognition highlighted my dedication to continuous learning, technical excellence, and my ability to apply advanced AI and software engineering skills to solve real-world challenges.
-</p>
-            <blockquote className="border-l-4 border-slate-800 pl-4 italic text-sm text-gray-700 leading-relaxed">
-              "Kamau demonstrated exceptional dedication to continuous learning and consistently translated knowledge into practical solutions through projects, hackathons, and real-world applications. His journey reflects resilience, technical excellence, and a genuine commitment to using technology to create meaningful impact."
-            </blockquote>
-            <div className="mt-4">
-              <p className="font-semibold text-sm text-gray-900">
-                WorldQuant University
-              </p>
-              <p className="text-xs text-gray-600">
-                International Recognition • 18 May 2026
+      <section
+        id="recommendations"
+        className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 relative"
+        style={{ backgroundColor: "#DFC3B2" }}
+      >
+        <div className="max-w-6xl mx-auto">
+          <AnimatedSection>
+            <div className="mb-12 md:mb-16">
+              <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-gray-800">
+                Recommendations
+              </h2>
+              <p className="text-sm text-gray-700 max-w-2xl leading-relaxed font-normal">
+                Recommendations from industry professionals and recognition from organizations that have evaluated my technical ability, work ethic, leadership, and commitment to continuous learning.
               </p>
             </div>
-          </div>
-        </div>
-        
-      </div>
-    </AnimatedSection>
-  </div>
-</section>
 
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+              
+              <div className="space-y-6">
+                
+                <div>
+                  <h3 className="text-lg font-semibold text-blue-600 mb-2">
+                    Mentor
+                  </h3>
+                  <p className="text-xs md:text-sm text-gray-700 font-normal mb-3 leading-relaxed">
+                    During my technical mentorship, Antony Kariuki, Manager of Investment Reporting at Prudential Financial Inc (Bermuda), observed my technical growth, leadership, and commitment to continuous improvement. Here's his recommendation:
+                  </p>
+                  <div className="bg-white p-4 rounded-md border border-gray-300 shadow-sm">
+                    <div className="flex items-start gap-3 mb-3">
+                      <div className="relative w-10 h-10 flex-shrink-0">
+                        <Image
+                          src="/Mentor1.webp"
+                          alt="Antony Kariuki"
+                          fill
+                          className="object-cover rounded-full border border-gray-200"
+                        />
+                      </div>
+                      <div>
+                        <div className="flex items-center gap-1">
+                          <h4 className="font-semibold text-xs md:text-sm text-gray-900">Antony Kariuki</h4>
+                          <CheckCircle className="w-3.5 h-3.5 text-blue-500 fill-blue-500 stroke-white stroke-[1.5]" />
+                          <span className="text-[10px] md:text-xs text-gray-500 font-normal ml-1">• 1st</span>
+                        </div>
+                        <p className="text-[10px] md:text-xs text-gray-600 leading-tight">
+                          Manager, Investment Reporting - Prudential Financial Inc
+                        </p>
+                        <p className="text-[9px] md:text-[10px] text-gray-500 mt-0.5">
+                          March 28, 2026, Antony was Kamau's mentor
+                        </p>
+                      </div>
+                    </div>
+                    <div className="text-xs md:text-[13px] text-gray-700 space-y-2 font-normal leading-relaxed text-left">
+                      <p>
+                        Kamau consistently demonstrates exceptional curiosity, discipline, and a genuine passion for technology. Throughout our mentorship, he approached every challenge with analytical thinking, professionalism, and a willingness to learn. Beyond his technical abilities in software engineering and data science, he naturally leads by example, collaborates effectively, and remains committed to delivering meaningful solutions. I am confident he will make a valuable contribution to any engineering team.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <h3 className="text-lg font-semibold text-blue-600 mb-2">
+                    Professional Endorsements
+                  </h3>
+                  <p className="text-xs md:text-sm text-gray-700 font-normal mb-3 leading-relaxed">
+                    While working as a Programmer at Agro Chemical and Food Company Limited, I reported directly to Paul Musee. Based on our professional experience together, he shared the following recommendation:
+                  </p>
+                  <div className="bg-white p-4 rounded-md border border-gray-300 shadow-sm">
+                    <div className="flex items-start gap-3 mb-3">
+                      <div className="relative w-10 h-10 flex-shrink-0">
+                        <Image
+                          src="/Paul Musee Mentor Logo.webp"
+                          alt="Paul Musee"
+                          fill
+                          className="object-cover rounded-full border border-gray-200"
+                        />
+                      </div>
+                      <div>
+                        <div className="flex items-center gap-1">
+                          <h4 className="font-semibold text-xs md:text-sm text-gray-900">Paul Musee</h4>
+                          <span className="text-[10px] md:text-xs text-gray-500 font-normal ml-1">• 1st</span>
+                        </div>
+                        <p className="text-[10px] md:text-xs text-gray-600 leading-tight">
+                          --
+                        </p>
+                        <p className="text-[9px] md:text-[10px] text-gray-500 mt-0.5">
+                          August 29, 2025, Paul managed Kamau directly
+                        </p>
+                      </div>
+                    </div>
+                    <div className="text-xs md:text-[13px] text-gray-700 space-y-2 font-normal leading-relaxed text-left">
+                      <p>
+                        Kamau consistently delivered reliable, well-structured, and maintainable software solutions while demonstrating strong problem-solving skills and professionalism. He quickly translated business requirements into efficient technical implementations and worked effectively with colleagues across different teams. His technical expertise, attention to detail, and positive attitude make him an excellent software engineer with significant potential for continued growth.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <div className="flex flex-col items-center lg:items-start lg:pl-4">
+                <h3 className="text-lg font-semibold text-blue-600 mb-2 w-full text-center lg:text-left">
+                  Organisation
+                </h3>
+                <p className="text-xs md:text-sm text-gray-700 font-normal mb-3 leading-relaxed text-center lg:text-left w-full">
+                  WorldQuant University internationally recognized my work in Data Science and Software Engineering, acknowledging my commitment to continuous learning, practical innovation, and applying technology to solve real-world challenges. Here's what they said about me:
+                </p>
+                
+                <div
+                  className="relative overflow-hidden border-2 border-slate-700 shadow-xl mb-6 mx-auto lg:mx-0 w-[6cm] h-[7cm] max-w-full"
+                >
+                  <Image
+                    src="/World Quant University Recognition 2.webp"
+                    alt="WorldQuant University Recognition"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+
+                <div className="text-center lg:text-left w-full">
+                  <span className="inline-block px-3 py-1 text-xs font-semibold tracking-wide uppercase bg-slate-800 text-white mb-4">
+                    International Recognition
+                  </span>
+                  <h3 className="text-2xl font-bold text-gray-800 mb-3">
+                    Featured by WorldQuant University
+                  </h3>
+                  <p className="text-sm text-gray-700 leading-relaxed mb-4">
+                    WorldQuant University featured my learning journey after completing the <strong>Data Science Lab</strong>, <strong>Deep Learning Lab</strong>, and <strong>Computer Vision Lab</strong> certificate programs while pursuing my undergraduate degree in Computer Science. The recognition highlighted my dedication to continuous learning, technical excellence, and my ability to apply advanced AI and software engineering skills to solve real-world challenges.
+                  </p>
+                  <blockquote className="border-l-4 border-slate-800 pl-4 italic text-sm text-gray-700 leading-relaxed text-left">
+                    "Kamau demonstrated exceptional dedication to continuous learning and consistently translated knowledge into practical solutions through projects, hackathons, and real-world applications. His journey reflects resilience, technical excellence, and a genuine commitment to using technology to create meaningful impact."
+                  </blockquote>
+                  <div className="mt-4 text-left">
+                    <p className="font-semibold text-sm text-gray-900">
+                      WorldQuant University
+                    </p>
+                    <p className="text-xs text-gray-600">
+                      International Recognition • 18 May 2026
+                    </p>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+          </AnimatedSection>
+        </div>
+      </section>
 
       <section className="bg-[#f7e5fc] grid grid-cols-1 lg:grid-cols-2 gap-10" id="blog">
         <AnimatedSection className="p-8 sm:p-12 lg:p-16 flex flex-col justify-center text-center lg:text-left">
@@ -1520,41 +1474,36 @@ const handleFormSubmit = async (e: React.FormEvent) => {
               </div>
 
               <div className="mt-6 pt-4 border-t border-slate-800">
-  <a
-    href="/Kamau Johnson's Business Card.pdf"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="inline-flex items-center gap-2.5 px-5 py-2.5 bg-[#0F1E36] hover:bg-[#1A2E4C] border border-[#233A5E]/40 text-white font-semibold text-sm transition-all duration-300 hover:shadow-lg hover:shadow-blue-950/25 hover:-translate-y-0.5 active:scale-95 group select-none cursor-pointer"
-  >
+                <a
+                  href="/Kamau Johnson's Business Card.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2.5 px-5 py-2.5 bg-[#0F1E36] hover:bg-[#1A2E4C] border border-[#233A5E]/40 text-white font-semibold text-sm transition-all duration-300 hover:shadow-lg hover:shadow-blue-950/25 hover:-translate-y-0.5 active:scale-95 group select-none cursor-pointer"
+                >
+                  <svg
+                    className="w-5 h-5 text-blue-400 transition-transform duration-300 group-hover:scale-110"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M3 7a2 2 0 012-2h14a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V7z"
+                    />
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M7 10h4m-4 4h2m6-4h.01"
+                    />
+                  </svg>
 
-    {/* Business Card Icon */}
-    <svg
-      className="w-5 h-5 text-blue-400 transition-transform duration-300 group-hover:scale-110"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      viewBox="0 0 24 24"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M3 7a2 2 0 012-2h14a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V7z"
-      />
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M7 10h4m-4 4h2m6-4h.01"
-      />
-    </svg>
+                  <span>View Digital Business Card</span>
 
-
-    <span>View Digital Business Card</span>
-
-
-    <ChevronRight className="w-4 h-4 ml-1 transition-transform duration-300 group-hover:translate-x-1" />
-
-  </a>
-</div>
+                  <ChevronRight className="w-4 h-4 ml-1 transition-transform duration-300 group-hover:translate-x-1" />
+                </a>
+              </div>
 
               <div className="pt-6">
                 <h4 className="font-semibold mb-4 text-sm">Follow Me</h4>
