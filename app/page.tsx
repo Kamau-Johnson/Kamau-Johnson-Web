@@ -1206,12 +1206,12 @@ export default function HomePage() {
                     </ul>
                   </div>
 
-                  <div className="mt-6 pt-4 border-t border-slate-800">
+                  <div className="mt-6 pt- border-t border-slate-800">
                     <a
                       href="https://www.wqu.edu/alumni/spotlight/kamau"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2.5 bg-[#0F1E36] hover:bg-[#1A2E4C] border border-[#233A5E]/40 text-white font-semibold text-sm transition-all duration-300 hover:shadow-lg hover:shadow-blue-950/25 hover:-translate-y-0.5 active:scale-95 group select-none cursor-pointer"
+                      className="inline-flex items-center gap-2.5 px-5 py-2.5 bg-[#0F1E36] hover:bg-[#1A2E4C] border border-[#233A5E]/40 text-white font-semibold text-sm transition-all duration-300 hover:shadow-lg hover:shadow-blue-950/25 hover:-translate-y-0.5 active:scale-95 group select-none cursor-pointer"
                     >
                       <svg
                         className="w-5 h-5 text-blue-400 transition-transform duration-300 group-hover:scale-110"
@@ -1232,6 +1232,7 @@ export default function HomePage() {
                       <ChevronRight className="w-4 h-4 ml-1 transition-transform duration-300 group-hover:translate-x-1" />
                     </a>
                   </div>
+
 
                 </div>
               </AnimatedSection>
@@ -1277,7 +1278,7 @@ export default function HomePage() {
                     Mentor
                   </h3>
                   <p className="text-xs md:text-sm text-gray-700 font-normal mb-3 leading-relaxed">
-                    During my technical mentorship, Antony Kariuki, Manager of Investment Reporting at Prudential Financial Inc (Bermuda), observed my technical growth, leadership, and commitment to continuous improvement. Here's his recommendation:
+                    During my technical mentorship, Sir Antony Kariuki, Manager of Investment Reporting at Prudential Financial Inc (Bermuda), observed my technical growth, leadership, and commitment to continuous improvement. Here's his recommendation:
                   </p>
                   <div className="bg-white p-4 rounded-md border border-gray-300 shadow-sm">
                     <div className="flex items-start gap-3 mb-3">
@@ -1291,7 +1292,7 @@ export default function HomePage() {
                       </div>
                       <div>
                         <div className="flex items-center gap-1">
-                          <h4 className="font-semibold text-xs md:text-sm text-gray-900">Antony Kariuki</h4>
+                          <h4 className="font-semibold text-xs md:text-sm text-gray-900">Sir Antony Kariuki</h4>
                           <CheckCircle className="w-3.5 h-3.5 text-blue-500 fill-blue-500 stroke-white stroke-[1.5]" />
                           <span className="text-[10px] md:text-xs text-gray-500 font-normal ml-1">• 1st</span>
                         </div>
@@ -1299,7 +1300,7 @@ export default function HomePage() {
                           Manager, Investment Reporting - Prudential Financial Inc
                         </p>
                         <p className="text-[9px] md:text-[10px] text-gray-500 mt-0.5">
-                          March 28, 2026, Antony was Kamau's mentor
+                          March 28, 2026, Sir Antony was Kamau's mentor
                         </p>
                       </div>
                     </div>
@@ -1316,7 +1317,7 @@ export default function HomePage() {
                     Professional Endorsements
                   </h3>
                   <p className="text-xs md:text-sm text-gray-700 font-normal mb-3 leading-relaxed">
-                    While working as a Programmer at Agro Chemical and Food Company Limited, I reported directly to Paul Musee. Based on our professional experience together, he shared the following recommendation:
+                    While working as a Programmer at Agro Chemical and Food Company Limited, I reported directly to Mr. Paul Musee. Based on our professional experience together, he shared the following recommendation:
                   </p>
                   <div className="bg-white p-4 rounded-md border border-gray-300 shadow-sm">
                     <div className="flex items-start gap-3 mb-3">
@@ -1330,14 +1331,14 @@ export default function HomePage() {
                       </div>
                       <div>
                         <div className="flex items-center gap-1">
-                          <h4 className="font-semibold text-xs md:text-sm text-gray-900">Paul Musee</h4>
+                          <h4 className="font-semibold text-xs md:text-sm text-gray-900">Mr. Paul Musee</h4>
                           <span className="text-[10px] md:text-xs text-gray-500 font-normal ml-1">• 1st</span>
                         </div>
                         <p className="text-[10px] md:text-xs text-gray-600 leading-tight">
                           --
                         </p>
                         <p className="text-[9px] md:text-[10px] text-gray-500 mt-0.5">
-                          August 29, 2025, Paul managed Kamau directly
+                          August 29, 2025, Mr. Paul Musee managed Kamau directly
                         </p>
                       </div>
                     </div>
