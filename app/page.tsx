@@ -1317,7 +1317,7 @@ export default function HomePage() {
                     Professional Endorsements
                   </h3>
                   <p className="text-xs md:text-sm text-gray-700 font-normal mb-3 leading-relaxed">
-                    While working as a Programmer at Agro Chemical and Food Company Limited, I reported directly to Mr. Paul Musee. Based on our professional experience together, he shared the following recommendation:
+                    While working as a Programmer at Agro Chemical and Food Company Limited (Kisumu, Kenya), I reported directly to Mr. Paul Musee. Based on our professional experience together, he shared the following recommendation:
                   </p>
                   <div className="bg-white p-4 rounded-md border border-gray-300 shadow-sm">
                     <div className="flex items-start gap-3 mb-3">
@@ -1335,7 +1335,7 @@ export default function HomePage() {
                           <span className="text-[10px] md:text-xs text-gray-500 font-normal ml-1">• 1st</span>
                         </div>
                         <p className="text-[10px] md:text-xs text-gray-600 leading-tight">
-                          --
+                          Assistant Manager - Agro Chemical and Food Company Limited
                         </p>
                         <p className="text-[9px] md:text-[10px] text-gray-500 mt-0.5">
                           August 29, 2025, Mr. Paul Musee managed Kamau directly
