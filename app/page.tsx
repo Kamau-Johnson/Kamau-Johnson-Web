@@ -1285,6 +1285,165 @@ const handleFormSubmit = async (e: React.FormEvent) => {
         </div>
       </section>
 
+<section
+  id="recommendations"
+  className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 relative"
+  style={{ backgroundColor: "#DFC3B2" }}
+>
+  <div className="max-w-6xl mx-auto">
+    <AnimatedSection>
+      {/* Header */}
+      <div className="mb-12 md:mb-16">
+        <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-gray-800">
+          Recommendations
+        </h2>
+        <p className="text-sm text-gray-700 max-w-2xl leading-relaxed font-normal">
+          Recommendations from industry professionals and recognition from organizations that have evaluated my technical ability, work ethic, leadership, and commitment to continuous learning.
+        </p>
+      </div>
+
+      {/* Main Two-Column Grid Layout */}
+      <div className="grid lg:grid-cols-2 gap-10 items-start">
+        
+        {/* Left Column: Professional Testimonials */}
+        <div className="space-y-6">
+          
+          {/* Mentor Segment */}
+          <div>
+            <h3 className="text-lg font-semibold text-blue-600 mb-2">
+              Mentor
+            </h3>
+            <p className="text-xs md:text-sm text-gray-700 font-normal mb-3 leading-relaxed">
+              During my technical mentorship, Antony Kariuki, Manager of Investment Reporting at Prudential Financial Inc (Bermuda), observed my technical growth, leadership, and commitment to continuous improvement. Here's his recommendation:
+            </p>
+            <div className="bg-white p-4 rounded-md border border-gray-300 shadow-sm">
+              <div className="flex items-start gap-3 mb-3">
+                <div className="relative w-10 h-10 flex-shrink-0">
+                  <Image
+                    src="/Mentor1.webp"
+                    alt="Antony Kariuki"
+                    fill
+                    className="object-cover rounded-full border border-gray-200"
+                  />
+                </div>
+                <div>
+                  <div className="flex items-center gap-1">
+                    <h4 className="font-semibold text-xs md:text-sm text-gray-900">Antony Kariuki</h4>
+                    <CheckCircle className="w-3.5 h-3.5 text-blue-500 fill-blue-500 stroke-white stroke-[1.5]" />
+                    <span className="text-[10px] md:text-xs text-gray-500 font-normal ml-1">• 1st</span>
+                  </div>
+                  <p className="text-[10px] md:text-xs text-gray-600 leading-tight">
+                    Manager, Investment Reporting - Prudential Financial Inc
+                  </p>
+                  <p className="text-[9px] md:text-[10px] text-gray-500 mt-0.5">
+                    March 28, 2026, Antony was Kamau's mentor
+                  </p>
+                </div>
+              </div>
+              <div className="text-xs md:text-[13px] text-gray-700 space-y-2 font-normal leading-relaxed text-left">
+                <p>
+                  Kamau consistently demonstrates exceptional curiosity, discipline, and a genuine passion for technology. Throughout our mentorship, he approached every challenge with analytical thinking, professionalism, and a willingness to learn. Beyond his technical abilities in software engineering and data science, he naturally leads by example, collaborates effectively, and remains committed to delivering meaningful solutions. I am confident he will make a valuable contribution to any engineering team.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Supervisor Segment */}
+          <div>
+            <h3 className="text-lg font-semibold text-blue-600 mb-2">
+              Supervisor I've worked under in same organization
+            </h3>
+            <p className="text-xs md:text-sm text-gray-700 font-normal mb-3 leading-relaxed">
+              While working as a Programmer at Agro Chemical and Food Company Limited, I reported directly to Paul Musee. Based on our professional experience together, he shared the following recommendation:
+            </p>
+            <div className="bg-white p-4 rounded-md border border-gray-300 shadow-sm">
+              <div className="flex items-start gap-3 mb-3">
+                <div className="relative w-10 h-10 flex-shrink-0">
+                  <Image
+                    src="/Paul Musee Mentor Logo.webp"
+                    alt="Paul Musee"
+                    fill
+                    className="object-cover rounded-full border border-gray-200"
+                  />
+                </div>
+                <div>
+                  <div className="flex items-center gap-1">
+                    <h4 className="font-semibold text-xs md:text-sm text-gray-900">Paul Musee</h4>
+                    <span className="text-[10px] md:text-xs text-gray-500 font-normal ml-1">• 1st</span>
+                  </div>
+                  <p className="text-[10px] md:text-xs text-gray-600 leading-tight">
+                    --
+                  </p>
+                  <p className="text-[9px] md:text-[10px] text-gray-500 mt-0.5">
+                    August 29, 2025, Paul managed Kamau directly
+                  </p>
+                </div>
+              </div>
+              <div className="text-xs md:text-[13px] text-gray-700 space-y-2 font-normal leading-relaxed text-left">
+                <p>
+                  Kamau consistently delivered reliable, well-structured, and maintainable software solutions while demonstrating strong problem-solving skills and professionalism. He quickly translated business requirements into efficient technical implementations and worked effectively with colleagues across different teams. His technical expertise, attention to detail, and positive attitude make him an excellent software engineer with significant potential for continued growth.
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        {/* Right Column: WorldQuant University Spotlight */}
+        <div className="flex flex-col items-center lg:items-start lg:pl-4">
+          <h3 className="text-lg font-semibold text-blue-600 mb-2 w-full text-center lg:text-left">
+            Organisation
+          </h3>
+          <p className="text-xs md:text-sm text-gray-700 font-normal mb-3 leading-relaxed text-center lg:text-left w-full">
+  WorldQuant University internationally recognized my work in Data Science and Software Engineering, acknowledging my commitment to continuous learning, practical innovation, and applying technology to solve real-world challenges. Here's what they said about me:
+</p>
+          
+          <div
+            className="relative overflow-hidden border-2 border-slate-700 shadow-xl mb-6 mx-auto lg:mx-0"
+            style={{
+              width: "6cm",
+              height: "7cm",
+            }}
+          >
+            <Image
+              src="/World Quant University Recognition 2.webp"
+              alt="WorldQuant University Recognition"
+              fill
+              className="object-cover"
+            />
+          </div>
+
+          <div className="text-center lg:text-left">
+            <span className="inline-block px-3 py-1 text-xs font-semibold tracking-wide uppercase bg-slate-800 text-white mb-4">
+              International Recognition
+            </span>
+            <h3 className="text-2xl font-bold text-gray-800 mb-3">
+              <h3 className="text-2xl font-bold text-gray-800 mb-3">
+                Featured by WorldQuant University
+</h3>
+            </h3>
+            <p className="text-sm text-gray-700 leading-relaxed mb-4">
+  WorldQuant University recognized my work and learning journey after I successfully completed its <strong>Data Science Lab</strong>, <strong>Deep Learning Lab</strong>, and <strong>Computer Vision Lab</strong> certificate programs while pursuing my undergraduate degree in Computer Science. The recognition highlighted my dedication to continuous learning, technical excellence, and my ability to apply advanced AI and software engineering skills to solve real-world challenges.
+</p>
+            <blockquote className="border-l-4 border-slate-800 pl-4 italic text-sm text-gray-700 leading-relaxed">
+              "Kamau demonstrated exceptional dedication to continuous learning and consistently translated knowledge into practical solutions through projects, hackathons, and real-world applications. His journey reflects resilience, technical excellence, and a genuine commitment to using technology to create meaningful impact."
+            </blockquote>
+            <div className="mt-4">
+              <p className="font-semibold text-sm text-gray-900">
+                WorldQuant University
+              </p>
+              <p className="text-xs text-gray-600">
+                International Recognition • 18 May 2026
+              </p>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </AnimatedSection>
+  </div>
+</section>
+
 
       <section className="bg-[#f7e5fc] grid grid-cols-1 lg:grid-cols-2 gap-10" id="blog">
         <AnimatedSection className="p-8 sm:p-12 lg:p-16 flex flex-col justify-center text-center lg:text-left">
